@@ -328,7 +328,7 @@ class SkillSpotify(OVOSCommonPlaybackSkill):
             pprint(data)
             response = [{
                 "match_confidence": level,
-                "uri": data['data']['uri'],
+                "uri": f"spotify://{data['data']['uri']}",
                 "media_type": MediaType.MUSIC,
                 "playback": PlaybackType.AUDIO,
                 "skill_icon": self.skill_icon,
