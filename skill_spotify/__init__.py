@@ -282,7 +282,7 @@ class SkillSpotify(OVOSCommonPlaybackSkill):
             self.log.info('Spotify is not available to search')
             if 'spotify' in phrase:
                 return [{
-                    "match_confidence": level,
+                    "match_confidence": 0,
                     "media_type": MediaType.MUSIC,
                     "playback": PlaybackType.AUDIO,
                     "skill_icon": self.skill_icon,
