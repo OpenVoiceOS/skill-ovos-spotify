@@ -8,3 +8,26 @@ The skill handles searching and interacting with spotify while the backend handl
 
 - Local auth is still used instead of using the standard OVOS systems
 - Only artist queries return the expected format for the audio backend
+
+## Install
+
+```
+```
+
+2. cd to the ovos-core folder and activate any used venv
+
+3. Install the skill using pip
+
+```
+pip install --pre git+https://github.com/forslund/ovos-spotify-skill.git
+```
+
+4. Run the spotify-skill authentication
+
+```
+python -m skill_spotify.auth
+```
+
+5. Configure the spotify-audio-backend
+
+For details see ovos-phal and the ovos backedn for registering oauth for ovos.

@@ -1,3 +1,3 @@
-spotipy==2.17.1
 pyxdg
 rapidfuzz
+ovos-audio-plugin-spotify==0.0.0a5

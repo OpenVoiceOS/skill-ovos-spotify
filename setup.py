@@ -12,8 +12,8 @@ PYPI_NAME = "skill-spotify"  # pip install PYPI_NAME
 SKILL_AUTHOR = "forslund"
 SKILL_NAME = "skill-spotify"
 SKILL_PKG = SKILL_NAME.lower().replace('-', '_')
-PLUGIN_ENTRY_POINT = f'{SKILL_NAME.lower()}.{SKILL_AUTHOR.lower()}={SKILL_PKG}:{SKILL_CLAZZ}'
-
+PLUGIN_ENTRY_POINT = (f'{SKILL_NAME.lower()}.{SKILL_AUTHOR.lower()}'
+                      f'={SKILL_PKG}:{SKILL_CLAZZ}')
 
 
 def get_requirements(requirements_filename: str):
@@ -25,19 +25,19 @@ def get_requirements(requirements_filename: str):
                     and not r.strip().startswith("#")]
     if 'MYCROFT_LOOSE_REQUIREMENTS' in os.environ:
         print('USING LOOSE REQUIREMENTS!')
-        requirements = [r.replace('==', '>=').replace('~=', '>=') for r in requirements]
+        requirements = [r.replace('==', '>=').replace('~=', '>=')
+                        for r in requirements]
     return requirements
 
 
 def find_resource_files():
-    # add any folder with files your skill uses here! 
+    # add any folder with files your skill uses here!
     resource_base_dirs = ("locale", "ui", "vocab", "dialog", "regex")
     base_dir = path.dirname(__file__)
     package_data = ["*.json"]
     for res in resource_base_dirs:
         print(path.join(base_dir, res))
         if path.isdir(path.join(base_dir, res)):
-            print("IS DIR!")
             for (directory, _, files) in walk(path.join(base_dir, res)):
                 if files:
                     package_data.append(
@@ -47,7 +47,6 @@ def find_resource_files():
     return package_data
 
 
-# TODO - add description, author, email, license, etc
 setup(
     # this is the package name that goes on pip
     name=PYPI_NAME,
@@ -57,7 +56,7 @@ setup(
     package_data={SKILL_PKG: ['locale/**/*']},
     packages=[SKILL_PKG],
     include_package_data=True,
-#    install_requires=get_requirements("requirements.txt"),
+    install_requires=get_requirements("requirements.txt"),
     keywords='ovos skill plugin',
     entry_points={'ovos.plugin.skill': PLUGIN_ENTRY_POINT}
 )
