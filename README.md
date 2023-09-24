@@ -11,23 +11,20 @@ The skill handles searching and interacting with spotify while the backend handl
 
 ## Install
 
-```
-```
+1. cd to the ovos-core folder and activate any used venv
 
-2. cd to the ovos-core folder and activate any used venv
-
-3. Install the skill using pip
+2. Install the skill using pip
 
 ```
 pip install --pre git+https://github.com/forslund/ovos-spotify-skill.git
 ```
 
-4. Run the spotify-skill authentication
+3. Run the spotify-skill authentication
 
 ```
 python -m skill_spotify.auth
 ```
 
-5. Configure the spotify-audio-backend
+4. Configure the spotify-audio-backend
 
 For details see ovos-phal and the ovos backedn for registering oauth for ovos.
