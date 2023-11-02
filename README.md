@@ -16,7 +16,7 @@ The skill handles searching and interacting with spotify while the backend handl
 2. Install the skill using pip
 
 ```
-pip install --pre git+https://github.com/forslund/ovos-spotify-skill.git
+pip install --pre git+https://github.com/OpenVoiceOS/skill-ovos-spotify.git
 ```
 
 3. Run the spotify-skill authentication
