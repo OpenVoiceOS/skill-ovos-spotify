@@ -12,20 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import random
 import re
 import time
 
 from enum import Enum
 from socket import gethostname
 
-from rapidfuzz import fuzz
-import spotipy
+from rapidfuzz import fuzz, process
 
 from adapt.intent import IntentBuilder
 from ovos_workshop.decorators import intent_handler
 from ovos_workshop.skills.common_play import OVOSCommonPlaybackSkill, \
-    MediaType, PlaybackType, ocp_search, MatchConfidence, ocp_play
+    MediaType, PlaybackType, ocp_search
 from ovos_utils import classproperty
 from ovos_utils.process_utils import RuntimeRequirements
 
@@ -45,9 +43,11 @@ class DeviceType(Enum):
     FIRSTBEST = 4
     NOTFOUND = 5
 
+
 # Return value definition indication nothing was found
 # (confidence None, data None)
 NOTHING_FOUND = (None, 0.0)
+
 
 # Confidence levels for generic play handling
 DIRECT_RESPONSE_CONFIDENCE = 0.8
@@ -88,7 +88,7 @@ def best_confidence(title, query):
     best = title.lower()
     best_stripped = re.sub(r'(\(.+\)|-.+)$', '', best).strip()
     return max(fuzz.ratio(best, query),
-               fuzz-ratio(best_stripped, query))
+               fuzz.ratio(best_stripped, query))
 
 
 def fuzzy_match(compare, input_string):
@@ -96,7 +96,7 @@ def fuzzy_match(compare, input_string):
 
 
 def match_one(query, choices):
-    selected = process.extractOne(query, choices, fuzz.WRatio)
+    selected = process.extractOne(query, choices)
     if selected:
         return selected[0]
     else:
@@ -185,7 +185,7 @@ class SkillSpotify(OVOSCommonPlaybackSkill):
                 self.load_credentials()
             except Exception as e:
                 self.log.info('Credentials could not be fetched. '
-                               '({})'.format(repr(e)))
+                              '({})'.format(repr(e)))
 
         if self.spotify:
             # Refresh saved tracks
@@ -484,7 +484,7 @@ class SkillSpotify(OVOSCommonPlaybackSkill):
                 data = self.spotify.search(artist, type='artist')
                 break
             except Exception:
-                sleep(0.05)
+                time.sleep(0.05)
         else:
             self.log.warning("Search failed")
             return NOTHING_FOUND
