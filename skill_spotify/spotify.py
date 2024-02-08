@@ -84,187 +84,6 @@ def refresh_spotify_oauth(func):
     return wrapper
 
 
-class SpotifyConnect(spotipy.Spotify):
-    """ Implement the Spotify Connect API.
-    See:  https://developer.spotify.com/web-api/
-    This class extends the spotipy.Spotify class with the refresh_auth decorator
-    """
-
-    @staticmethod
-    def get_album_info(data):
-        """ Get album info from data object.
-        Arguments:
-            data: data structure from spotify
-        Returns: tuple with name, [artists], uri)
-        """
-        return (data['albums']['items'][0]['name'],
-                [a['name'] for a in data['albums']['items'][0]['artists']],
-                data['albums']['items'][0]['uri'])
-
-    @staticmethod
-    def get_artist_info(data):
-        """ Get artist info from data object.
-        Arguments:
-            data: data structure from spotify
-        Returns: tuple with name, uri)
-        """
-        return (data['artists']['items'][0]['name'],
-                data['artists']['items'][0]['uri'])
-
-    @staticmethod
-    def get_song_info(data):
-        """ Get song info from data object.
-        Arguments:
-            data: data structure from spotify
-        Returns: tuple with name, [artists], uri)
-        """
-        return (data['tracks']['items'][0]['name'],
-                [a['name'] for a in data['tracks']['items'][0]['artists']],
-                data['tracks']['items'][0]['uri'])
-
-    @staticmethod
-    def status_info(status):
-        """ Return track, artist, album tuple from spotify status.
-            Arguments:
-                status (dict): Spotify status info
-            Returns:
-                tuple (track, artist, album)
-         """
-        try:
-            artist = status['item']['artists'][0]['name']
-        except Exception:
-            artist = 'unknown'
-        try:
-            track = status['item']['name']
-        except Exception:
-            track = 'unknown'
-        try:
-            album = status['item']['album']['name']
-        except Exception:
-            album = 'unknown'
-        return track, artist, album
-
-    @refresh_spotify_oauth
-    def get_devices(self):
-        """ Get a list of Spotify devices from the API.
-        Returns:
-            list of spotify devices connected to the user.
-        """
-        # TODO: Cache for a brief time
-        devices = self.devices()
-        return devices.get('devices', [])
-
-    def get_device(self, dev_id):
-        for d in self.get_devices():
-            if d["id"] == dev_id:
-                return d
-        return None
-
-    @refresh_spotify_oauth
-    def status(self):
-        """ Get current playback status (across the Spotify system) """
-        return self.current_user_playing_track()
-
-    @refresh_spotify_oauth
-    def is_playing(self, device=None):
-        """ Get playback state, either across Spotify or for given device.
-        Args:
-            device (int): device id to check, if None playback on any device
-                          will be reported.
-        Returns:
-            True if specified device is playing
-        """
-        try:
-            status = self.status()
-            if not status['is_playing'] or device is None:
-                return status['is_playing']
-
-            # Verify it is playing on the given device
-            dev = self.get_device(device)
-            return dev and dev['is_active']
-        except:
-            # Technically a 204 return from status() request means 'no track'
-            return False  # assume not playing
-
-    @refresh_spotify_oauth
-    def transfer_playback(self, device_id, force_play=True):
-        """ Transfer playback to another device.
-        Arguments:
-            device_id (int):      transfer playback to this device
-            force_play (boolean): true if playback should start after
-                                  transfer
-        """
-        super().transfer_playback(device_id=device_id, force_play=force_play)
-
-    @refresh_spotify_oauth
-    def play(self, device, uris=None, context_uri=None):
-        """ Start playback of tracks, albums or artist.
-        Can play either a list of uris or a context_uri for things like
-        artists and albums. Both uris and context_uri shouldn't be provided
-        at the same time.
-        Args:
-            device (int):      device id to start playback on
-            uris (list):       list of track uris to play
-            context_uri (str): Spotify context uri for playing albums or
-                               artists.
-        """
-        self.start_playback(device_id=device, uris=uris, context_uri=context_uri)
-
-    @refresh_spotify_oauth
-    def pause(self, device):
-        """ Pause user's playback on device.
-        Arguments:
-            device_id: device to pause
-        """
-        self.pause_playback(device_id=device)
-
-    @refresh_spotify_oauth
-    def next(self, device):
-        """ Skip track.
-        Arguments:
-            device_id: device id for playback
-        """
-        self.next_track(device_id=device)
-
-    @refresh_spotify_oauth
-    def prev(self, device):
-        """ Move back in playlist.
-        Arguments
-            device_id: device target for playback
-        """
-        self.previous_track(device_id=device)
-
-    @refresh_spotify_oauth
-    def volume(self, device, volume):
-        """ Set volume of device:
-        Parameters:
-            device: device id
-            volume: volume in percent
-        """
-        super().volume(volume_percent=volume, device_id=device)
-
-    @refresh_spotify_oauth
-    def shuffle(self, state):
-        """ Toggle shuffling
-            Parameters:
-                state: Shuffle state
-        """
-        super().shuffle(state)  # TODO pass device_id
-
-    @refresh_spotify_oauth
-    def repeat(self, state):
-        """ Toggle repeat
-        state:
-            track - will repeat the current track.
-            context - will repeat the current context.
-            off - will turn repeat off.
-
-            Parameters:
-                state: Shuffle state
-        """
-        super().repeat(state)  # TODO pass device_id
-
-
 class SpotifyClient:
     # Return value definition indication nothing was found
     # (confidence None, data None)
@@ -320,7 +139,7 @@ class SpotifyClient:
         """ Retrieve credentials from the backend and connect to Spotify """
         try:
             creds = OVOSSpotifyCredentials()
-            self._spotify = SpotifyConnect(client_credentials_manager=creds)
+            self._spotify = spotipy.Spotify(client_credentials_manager=creds)
         except(HTTPError, SpotifyNotAuthorizedError):
             LOG.error('Couldn\'t fetch spotify credentials')
 
@@ -621,6 +440,7 @@ if __name__ == "__main__":
             }
             yield entry
 
+
     def search_playlists(query):
         data, score = spotify.get_best_user_playlist(query)
         uri = data["uri"]
@@ -653,4 +473,3 @@ if __name__ == "__main__":
             "title": data["name"]
         }
         yield entry
-
