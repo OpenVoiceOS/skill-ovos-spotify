@@ -1,30 +1,48 @@
-# Ovos Spotify skill
+# OVOS Spotify skill
 
-WIP! This is intended to work in tandem with the ovos spotify audio backend
+OCP skill for spotify
 
-The skill handles searching and interacting with spotify while the backend handles the playback.
+This skill requires additional setup and components
 
-## Current Status
+## Setup
 
-- Local auth is still used instead of using the standard OVOS systems
-- Only artist queries return the expected format for the audio backend
+Install and configure the companion plugin [ovos-media-plugin-spotify](https://github.com/OpenVoiceOS/ovos-media-plugin-spotify)
 
-## Install
+`pip install ovos-media-plugin-spotify`
 
-1. cd to the ovos-core folder and activate any used venv
+this skill only handles the voice search, plugin is needed to handle playback of spotify uris provided by this skill
 
-2. Install the skill using pip
+## Oauth
 
-```
-pip install --pre git+https://github.com/OpenVoiceOS/skill-ovos-spotify.git
-```
+Currently Oauth needs to be performed manually
 
-3. Run the spotify-skill authentication
+after installing the plugin run `ovos-spotify-oauth` on the command line and follow the instructions
 
 ```
-python -m skill_spotify.auth
+$ ovos-spotify-oauth
+This script creates the token information needed for running spotify
+        with a set of personal developer credentials.
+
+        It requires the user to go to developer.spotify.com and set up a
+        developer account, create an "Application" and make sure to whitelist
+        "https://localhost:8888".
+
+        After you have done that enter the information when prompted and follow
+        the instructions given.
+        
+YOUR CLIENT ID: xxxxx
+YOUR CLIENT SECRET: xxxxx
+Go to the following URL: https://accounts.spotify.com/authorize?client_id=xxx&response_type=code&redirect_uri=https%3A%2F%2Flocalhost%3A8888&scope=user-library-read+streaming+playlist-read-private+user-top-read+user-read-playback-state
+Enter the URL you were redirected to: https://localhost:8888/?code=.....
+ocp_spotify oauth token saved
 ```
 
-4. Configure the spotify-audio-backend
+## Examples 
 
-For details see ovos-phal and the ovos backedn for registering oauth for ovos.
+* "play heavy metal"
+* "play motorhead"
+
+
+## Credits
+
+- [@forslund](https://github.com/forslund)
