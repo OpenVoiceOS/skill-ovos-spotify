@@ -1,30 +1,17 @@
-# Ovos Spotify skill
+# OVOS Spotify skill
 
-WIP! This is intended to work in tandem with the ovos spotify audio backend
+OCP skill for spotify
 
-The skill handles searching and interacting with spotify while the backend handles the playback.
+This skill requires additional setup and components
 
-## Current Status
+## Setup
 
-- Local auth is still used instead of using the standard OVOS systems
-- Only artist queries return the expected format for the audio backend
+Install and configure [ovos-media-plugin-spotify](https://github.com/OpenVoiceOS/ovos-media-plugin-spotify) plugin to handle playback of spotify uris, 
+this skill only handles the voice search
 
-## Install
+Oauth needs to be done manually, follow the instructions in the plugin repo
 
-1. cd to the ovos-core folder and activate any used venv
+## Examples 
 
-2. Install the skill using pip
-
-```
-pip install --pre git+https://github.com/OpenVoiceOS/skill-ovos-spotify.git
-```
-
-3. Run the spotify-skill authentication
-
-```
-python -m skill_spotify.auth
-```
-
-4. Configure the spotify-audio-backend
-
-For details see ovos-phal and the ovos backedn for registering oauth for ovos.
+* "play heavy metal"
+* "play motorhead"
