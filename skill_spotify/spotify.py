@@ -1,15 +1,15 @@
 import re
 import time
-from functools import wraps
 
 import requests
 import spotipy
-from ovos_backend_client.api import OAuthApi
 from ovos_utils.log import LOG
 from ovos_utils.ocp import PlaybackType, MediaType
 from ovos_utils.parse import match_one, fuzzy_match
 from requests.exceptions import HTTPError
 from spotipy.oauth2 import SpotifyAuthBase
+
+from ovos_backend_client.api import OAuthApi
 
 
 class SpotifyPlaybackError(Exception):
@@ -36,52 +36,12 @@ class OVOSSpotifyCredentials(SpotifyAuthBase):
 
     def __init__(self):
         super().__init__(requests.Session())
-        self.access_token = None
-        self.expiration_time = None
-        self.get_access_token()
 
     @staticmethod
-    def get_token():
-        """ Get token with a single retry."""
-        retry = False
-        d = None
-        try:
-            d = OAuthApi().get_oauth_token(OAUTH_TOKEN_ID)
-        except HTTPError as e:
-            if e.response.status_code == 404:  # Token doesn't exist
-                raise SpotifyNotAuthorizedError
-            if e.response.status_code == 401:  # Device isn't paired
-                raise SpotifyNotAuthorizedError
-            else:
-                retry = True
-        if retry:
-            d = OAuthApi().get_oauth_token(OAUTH_TOKEN_ID)
-        if not d:
-            raise SpotifyNotAuthorizedError
-        return d
-
-    def get_access_token(self, force=False):
-        if (not self.access_token or time.time() > self.expiration_time or force):
-            d = self.get_token()
-            self.access_token = d['access_token']
-            # get expiration time from message, if missing assume 1 hour
-            self.expiration_time = d.get('expiration') or time.time() + 3600
-        return self.access_token
-
-
-def refresh_spotify_oauth(func):
-    @wraps(func)
-    def wrapper(self, *args, **kwargs):
-        try:
-            return func(self, *args, **kwargs)
-        except HTTPError as e:
-            if e.response.status_code == 401:
-                self.client_credentials_manager.get_access_token(force=True)
-                return func(self, *args, **kwargs)
-            else:
-                raise
-
-    return wrapper
+    def get_access_token():
+        t = OAuthApi().get_oauth_token(OAUTH_TOKEN_ID,
+                                       auto_refresh=True)
+        return t["access_token"]
 
 
 class SpotifyClient:
@@ -139,7 +99,7 @@ class SpotifyClient:
         """ Retrieve credentials from the backend and connect to Spotify """
         try:
             creds = OVOSSpotifyCredentials()
-            self._spotify = spotipy.Spotify(client_credentials_manager=creds)
+            self._spotify = spotipy.Spotify(auth_manager=creds)
         except(HTTPError, SpotifyNotAuthorizedError):
             LOG.error('Couldn\'t fetch spotify credentials')
 
@@ -156,69 +116,6 @@ class SpotifyClient:
                 self._playlists[p['name'].lower()] = p
             self.__playlists_fetched = now
         return self._playlists
-
-    def generic_query(self, phrase, bonus=0):
-        """ Check for a generic query, not asking for any special feature.
-            This will try to parse the entire phrase in the following order
-            - As a user playlist
-            - As an album
-            - As a track
-            - As a public playlist
-            Arguments:
-                phrase (str): Text to match against
-                bonus (float): Any existing match bonus
-            Returns: Tuple with confidence and data or NOTHING_FOUND
-        """
-        LOG.info('Handling "{}" as a genric query...'.format(phrase))
-        results = []
-        data = {}
-        LOG.info('Checking users playlists')
-        playlist, conf = self.get_best_user_playlist(phrase)
-        if playlist:
-            uri = self.playlists[playlist]
-            data = {
-                'data': uri,
-                'name': playlist,
-                'type': 'playlist'
-            }
-        if conf and conf > SpotifyClient.DIRECT_RESPONSE_CONFIDENCE:
-            return (conf, data)
-        elif conf and conf > SpotifyClient.MATCH_CONFIDENCE:
-            results.append((conf, data))
-
-        # Check for artist
-        LOG.info('Checking artists')
-        conf, data = self.query_artist(phrase, bonus=0)
-        if conf and conf > SpotifyClient.DIRECT_RESPONSE_CONFIDENCE:
-            return conf, data
-        elif conf and conf > SpotifyClient.MATCH_CONFIDENCE:
-            results.append((conf, data))
-
-        # Check for track
-        LOG.info('Checking tracks')
-        conf, data = self.query_song(phrase, bonus=0)
-        if conf and conf > SpotifyClient.DIRECT_RESPONSE_CONFIDENCE:
-            return conf, data
-        elif conf and conf > SpotifyClient.MATCH_CONFIDENCE:
-            results.append((conf, data))
-
-        # Check for album
-        LOG.info('Checking albums')
-        conf, data = self.query_album(phrase, bonus=0)
-        if conf and conf > SpotifyClient.DIRECT_RESPONSE_CONFIDENCE:
-            return conf, data
-        elif conf and conf > SpotifyClient.MATCH_CONFIDENCE:
-            results.append((conf, data))
-
-        # Check for public playlist
-        LOG.info('Checking public playlists')
-        conf, data = self.get_best_public_playlist(phrase)
-        if conf and conf > SpotifyClient.DIRECT_RESPONSE_CONFIDENCE:
-            return conf, data
-        elif conf and conf > SpotifyClient.MATCH_CONFIDENCE:
-            results.append((conf, data))
-
-        return self.best_result(results)
 
     def query_artist(self, artist, bonus=0.0):
         """Try to find an artist.
