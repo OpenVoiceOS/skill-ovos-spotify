@@ -1,0 +1,32 @@
+{
+    "WhatArtist.intent": [
+        "a quen (estamos|estou) o\u00edndo (agora|)",
+        "quen \u00e9 (o|a) (artista|cantor|m\u00fasico)",
+        "quen est\u00e1 reproducindo (isto) ",
+        "que (banda) \u00e9 (esta)",
+        "a que (banda) (estamos o\u00edndo|est\u00e1s reproducindo)",
+        "(que) artista \u00e9 (este)"
+    ],
+    "WhatSong.intent": [
+        "que est\u00e1s reproducindo",
+        "dime o que est\u00e1s reproducindo",
+        "que (estamos|estou) o\u00edndo (agora|)",
+        "que canci\u00f3n \u00e9 esta",
+        "que canci\u00f3n \u00e9 esta",
+        "dime que canci\u00f3n \u00e9 esta"
+    ],
+    "StopMusic.intent": [
+        "(parar|para|apagar|apaga) (a|o|) (m\u00fasica|spotify|)"
+    ],
+    "ShuffleOff.intent": [
+        "(apagar|redefinir||desabilita|redefine) (o|) (aleatorio) spotify",
+        "(definir|defina|configurar|configure) (o|) (aleatorio) spotify (como|) apagado"
+    ],
+    "WhatAlbum.intent": [
+        "que (\u00e1lbum) \u00e9 (este)",
+        "que \u00e9 (este) (\u00e1lbum)"
+    ],
+    "ShuffleOn.intent": [
+        "(acender|habilita|define) (o|) (aleatorio) (como|) (|acendido)"
+    ]
+}

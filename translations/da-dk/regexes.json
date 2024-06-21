@@ -1,0 +1,5 @@
+{
+    "ToDevice.rx": [
+        "til (?P<ToDevice>.+)"
+    ]
+}

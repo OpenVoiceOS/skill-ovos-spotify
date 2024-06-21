@@ -1,0 +1,115 @@
+{
+    "ListeningToPlaylist.dialog": [
+        "Lytter til playlisten {playlist}",
+        "Afspiller nu playlisten {playlist}",
+        "Okay. Lad os h\u00f8re din playliste {playlist}",
+        "Modtaget. Den n\u00e6ste derkommer er din playliste {playlist}"
+    ],
+    "AvailableDevices.dialog": [
+        "Jeg ser Spotify enheder ben\u00e6vnt: {devices}",
+        "Jeg har fundet Spotify enheder ben\u00e6vnt: {devices}"
+    ],
+    "NotConfigured.dialog": [
+        "Jeg er ikke forbundet til en Spotify konto. G\u00e5 til home dot mycroft dot a i for at autentificere denne skill."
+    ],
+    "For.dialog": [
+        "for"
+    ],
+    "NoDevicesAvailable.dialog": [
+        "Jeg kunne ikke finde nogle Spotify enheder.",
+        "Der er ingen Spotify enheder tilg\u00e6ngelige."
+    ],
+    "NoArtistResults.dialog": [
+        "hmmm. Jeg kan ikke finde den kunstner.",
+        "Bekklager, Jeg kan ikke finde den kunstner.",
+        "I kan ikke finde den kunsner.",
+        "Jeg fik ingen resultater for den kunstner.",
+        "Beklager. Jeg fik ikke nogle resultater for den kunstner.",
+        "Uh-oh. Jeg fandt ikke denkunstner du s\u00f8gte efter."
+    ],
+    "PlaybackFailed.dialog": [
+        "Spotify kunne ikke starte afspilning: {reason}"
+    ],
+    "And.dialog": [
+        "og"
+    ],
+    "by.dialog": [
+        "af"
+    ],
+    "ListeningToGenre.dialog": [
+        "Okay. Lad os h\u00f8re soget {genre}. Starter med {track} af {artist}",
+        "Lad os h\u00f8re noget {genre}. Starter med {track} af {artist}",
+        "Lad os h\u00f8re noget {genre} musik. Her er {track} af {artist}",
+        "Afspiller {genre} musik. Starter med {track} af {artist}"
+    ],
+    "CurrentSong.dialog": [
+        "Vi lytter til {song} med {artist}",
+        "Jeg afspiller {song} af {artist}",
+        "{song} af {artist}"
+    ],
+    "NothingPlaying.dialog": [
+        "Intet spiller i \u00f8jeblikket",
+        "Jeg spiller ikke noget"
+    ],
+    "PlaylistNotFound.dialog": [
+        "Afspilningsliste ikke fundet",
+        "Der blev ikke fundet nogen matchende afspilningsliste"
+    ],
+    "ListeningToArtist.dialog": [
+        "Lytter nu til {artist}",
+        "Lytter til {artist}",
+        "Afspiller sange af {artist}"
+    ],
+    "ForAlbum.dialog": [
+        "for albummet"
+    ],
+    "DeviceNotFound.dialog": [
+        "Jeg kunne ikke finde enheden {name}",
+        "Der er ingen spotify-enhed ved navn {name}"
+    ],
+    "FailedToStart.dialog": [
+        "Jeg kunne ikke starte Spotify afspiller. Venligst kontrol\u00e9r din netv\u00e6rksforbindelse og at dit brugernavn og dit kodeord er korrekt."
+    ],
+    "ForArtist.dialog": [
+        " for kunstneren"
+    ],
+    "NoDefaultDeviceAvailable.dialog": [
+        "I kunne ikke finde nogen standard Spot-ify enheder. Kontrol\u00e9r Spot-ify er startet, eller at denne skill er blevet konfigureret til at bruge standard biblioteket",
+        "Der er ikke nogen standard Spotify enheder tilg\u00e6ngelige. Kontroll\u00e9r at Spotify k\u00f8rer, eller at denne skill er  blevet konfigureret til at bruge standard biblioteket"
+    ],
+    "ListeningToAlbumBy.dialog": [
+        "Lytter til {album} af {artist}.",
+        "Afspiller nu {album} af {artist}."
+    ],
+    "NoResults.dialog": [
+        "Hmm, Jeg kan ikke finde det.",
+        "Beklager. Jeg kan ikek finde det.",
+        "Jeg kan ikke finde det.",
+        "Jeg fik ikke nogen resultat for det.",
+        "Beklager, Jeg fik ikke nogle resultater for det.",
+        "Uh-oh. Jeg fandt ikke hvad du s\u00f8gte efter."
+    ],
+    "ListeningToSongBy.dialog": [
+        "Lytter til sangen {track} af {kunstner}.",
+        "Afspiller nu sangen {track} af {kunsner}.",
+        "Afspiller {track} af {kunstner"
+    ],
+    "CurrentAlbum.dialog": [
+        "dette er {album}",
+        "det er {album}",
+        "Vi lytter til {album}",
+        "Jeg afspiller {album}"
+    ],
+    "OnAlbum.dialog": [
+        "det er {album}",
+        "dette er fra {album}",
+        "dette nummer er p\u00e5 {album}"
+    ],
+    "NotAuthorized.dialog": [
+        "Kan ikke godkende med Spotify-tjenesten. G\u00e5 til skill indstillinger p\u00e5 home dot mycroft dot a i for at s\u00f8tte dit brugernavn og adgangskode og forbind til Spotify."
+    ],
+    "CurrentArtist.dialog": [
+        "dette er {artist}",
+        "Vi lytter til {artist}"
+    ]
+}

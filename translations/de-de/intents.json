@@ -1,0 +1,32 @@
+{
+    "WhatArtist.intent": [
+        "wen h\u00f6re(n wir| ich) gerade",
+        "wer ist der (Interpret|K\u00fcnstler)",
+        "(wer|) spielt (das|) ",
+        "welche Band ist das",
+        "welche Band (h\u00f6ren wir an|spielst du)",
+        "welcher K\u00fcnstler ist das"
+    ],
+    "WhatSong.intent": [
+        "(was wird|) gespielt",
+        "sag mir was gespielt wird",
+        "was (h\u00f6ren wir|h\u00f6re ich) gerade",
+        "welches Lied ist das",
+        "Was ist das f\u00fcr ein Lied",
+        "sag mir was das f\u00fcr ein Lied ist"
+    ],
+    "StopMusic.intent": [
+        "(stoppe|schalte|beende) (die Musik|Spotify) (aus|ab|)"
+    ],
+    "ShuffleOff.intent": [
+        "(schalte|deaktiviere|hebe) (die|den) Spotify (Zufallswiedergabe|Shuffle) (| aus| ab| auf)",
+        "schalte Spotify (Shuffle|Zufallswiedergabe) aus"
+    ],
+    "WhatAlbum.intent": [
+        "Welche(r|s|) (Album|Aufnahme|CD|Schallplatte|LP) ist das",
+        "Welche(r|s|) (Album|Aufnahme|CD|Schallplatte|LP) ist das"
+    ],
+    "ShuffleOn.intent": [
+        "(schalte|aktiviere) Spotify (Shuffle|Zufallswiedergabe) (| an)"
+    ]
+}

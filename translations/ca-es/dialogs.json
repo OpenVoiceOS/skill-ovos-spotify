@@ -1,0 +1,124 @@
+{
+    "ListeningToPlaylist.dialog": [
+        "Estem escoltant {playlist}",
+        "S'est\u00e0 reproduint la llista de reproducci\u00f3 {playlist}",
+        "D'acord, escoltem la vostra llista de reproducci\u00f3 {playlist}",
+        "Entesos. A continuaci\u00f3 la vostra llista de reproducci\u00f3 {playlist}"
+    ],
+    "ListeningToSavedSongs.dialog": [
+        "D'acord, escoltem les can\u00e7ons que s'han desat.",
+        "Escoltem les can\u00e7ons que s'han desat.",
+        "S'estan reproduint les can\u00e7ons que s'han desat."
+    ],
+    "AvailableDevices.dialog": [
+        "Veig els dispositius Spotify: {devices}",
+        "He trobat els dispositius Spotify: {devices}"
+    ],
+    "NotConfigured.dialog": [
+        "Encara no m'he connectat a cap compte de Spotify.  Aneu a home punt mycroft punt ai per configurar l'habilitat."
+    ],
+    "For.dialog": [
+        "per a"
+    ],
+    "NoSettingsReceived.dialog": [
+        "Encara no s'ha rebut la configuraci\u00f3, espereu una mica i torneu-ho a intentar.",
+        "Encara no s'ha rebut la configuraci\u00f3, epereu una mica i torneu-ho a intentar."
+    ],
+    "NoDevicesAvailable.dialog": [
+        "No he pogut trobar cap dispositiu Spotify.",
+        "No hi ha cap dispositiu Spotify disponible."
+    ],
+    "NoArtistResults.dialog": [
+        "mmm... No he pogut trobar l'artista.",
+        "Disculpeu, no he pogut trobar l'artista.",
+        "Sembla que no puc trobar l'artista.",
+        "No he obtingut cap resultat per a l'artista.",
+        "Disculpeu, no he obtingut cap resultat per a aquest artista.",
+        "Eee. No he trobat l'artista que cercaves."
+    ],
+    "PlaybackFailed.dialog": [
+        "Spotify no ha pogut iniciar la reproducci\u00f3: {reason}"
+    ],
+    "And.dialog": [
+        "i"
+    ],
+    "by.dialog": [
+        "de"
+    ],
+    "ListeningToGenre.dialog": [
+        "D'acord, escoltem una mica de {genre}. Comencem per {track} de {artist}",
+        "Escoltem una mica de {genre}. Comencem per {track}} de {artist}",
+        "Escoltem una mica de m\u00fasica {genre}. Aix\u00f2 \u00e9s {track} de {artist}",
+        "S'est\u00e0 reproduint m\u00fasica {genre}. Comencem amb {track} de {artist}"
+    ],
+    "CurrentSong.dialog": [
+        "Estem escoltant {song} de {artist}",
+        "s'est\u00e0 reprodu\u00efnt {song} de {artist}",
+        "{song} de {artist}"
+    ],
+    "NothingPlaying.dialog": [
+        "No s'est\u00e0 reproduint res en aquest moment.",
+        "No estic reproduint res."
+    ],
+    "PlaylistNotFound.dialog": [
+        "No s'ha trobat la llista de reproducci\u00f3",
+        "No s'ha trobat cap llista de reproducci\u00f3 coincident"
+    ],
+    "ListeningToArtist.dialog": [
+        "S'est\u00e0 escoltant {artist}",
+        "S'est\u00e0 escoltant {artist}",
+        "S'estan reproduint can\u00e7ons de {artist}"
+    ],
+    "ForAlbum.dialog": [
+        "per l'\u00e0lbum"
+    ],
+    "DeviceNotFound.dialog": [
+        "no he pogut trobar el dispositiu {name}",
+        "No hi ha cap dispositiu spotify anomenat {name}"
+    ],
+    "FailedToStart.dialog": [
+        "No he pogut iniciar el reproductor de Spotify. Comproveu la connectivitat de la vostra xarxa i que el vostre nom d'usuari i contrasenya siguin correctes."
+    ],
+    "ForArtist.dialog": [
+        " per l'artista"
+    ],
+    "NoDefaultDeviceAvailable.dialog": [
+        "No he pogut trobar cap dispositiu Spotify.  Assegureu-vos que Spotify estigui actiu o que l'habilitat hagi estat configurada per utilitzar les llibreries predeterminades.",
+        "No hi ha cap dispositiu Spotify disponible. Assegureu-vos que Spotify estigui actiu o que l'habilitat hagi estat configurada per utilitzar les llibreries predeterminades."
+    ],
+    "ListeningToAlbumBy.dialog": [
+        "S'est\u00e0 escoltant {album} de {artist}.",
+        "S'est\u00e0 reproduint {album} de {artist}."
+    ],
+    "NoResults.dialog": [
+        "No ho he pogut trobar.",
+        "Disculpeu, no ho he pogut trobar.",
+        "Sembla que no ho he pogut trobar.",
+        "No he obtingut cap resultat.",
+        "Disculpeu, no he obtingut cap resultat.",
+        "No he pogut trobar el que cercaves."
+    ],
+    "ListeningToSongBy.dialog": [
+        "Estem escoltant la can\u00e7\u00f3 {tracks} de {artist}.",
+        "Estem escoltant la can\u00e7\u00f3 {tracks} de {artist}.",
+        "S'est\u00e0 reproduint {tracks} de {artist}"
+    ],
+    "CurrentAlbum.dialog": [
+        "aix\u00f2 \u00e9s {album}",
+        "\u00e9s {album}",
+        "estem escoltant {album}",
+        "s'est\u00e0 reproduint {album}"
+    ],
+    "OnAlbum.dialog": [
+        "\u00e9s {album}",
+        "aix\u00f2 \u00e9s de {album}",
+        "aquesta pista pertany a {album}"
+    ],
+    "NotAuthorized.dialog": [
+        "No s'ha pogut autoritzar el servei de Spotify. Aneu a Configuraci\u00f3 d'habilitats a home punt mycroft punt ai per verificar el seu nom d'usuari i contrasenya per connectar-vos a Spotify."
+    ],
+    "CurrentArtist.dialog": [
+        "aix\u00f2 \u00e9s {artist}",
+        "estem escoltant {artist}"
+    ]
+}

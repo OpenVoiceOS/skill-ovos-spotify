@@ -1,0 +1,32 @@
+{
+    "WhatArtist.intent": [
+        "quem (n\u00f3s|eu|) (estamos|estou) ouvindo (agora|)",
+        "quem \u00e9 (o|a) (artista|cantor|m\u00fasico)",
+        "quem est\u00e1 tocando (isto|isso|) ",
+        "que (banda|conjunto) \u00e9 (esta|essa|este|esse)",
+        "que (banda|conjunto) (n\u00f3s estamos ouvindo|voc\u00ea est\u00e1 tocando)",
+        "(que|qual) artista \u00e9 (este|esse)"
+    ],
+    "WhatSong.intent": [
+        "o que est\u00e1 tocando",
+        "(me|) (diga|fale) o que est\u00e1 tocando",
+        "o que (n\u00f3s|eu|) (estamos|estou) ouvindo (agora|)",
+        "que (m\u00fasica|can\u00e7\u00e3o) \u00e9 (esta|essa)",
+        "(que|qual) (can\u00e7\u00e3o|m\u00fasica) \u00e9 (esta|essa)",
+        "(me diga|me fale|diga|fale) qual \u00e9 (esta|essa|a) (m\u00fasica|can\u00e7\u00e3o)"
+    ],
+    "StopMusic.intent": [
+        "(parar|finalizar|desligar|pare|finalize|desligue) (a|o|) (m\u00fasica|spotify|)"
+    ],
+    "ShuffleOff.intent": [
+        "(desligar|desabilitar|redefinir|desligue|desabilite|redefina) (o|) (embaralhamento|shuffle) spotify",
+        "(definir|defina|configurar|configure) (o|) (shuffle|embaralhamento) spotify (como|) desligado"
+    ],
+    "WhatAlbum.intent": [
+        "qual (\u00e1lbum|disco|cd|lp) \u00e9 (este|esse)",
+        "qual \u00e9 (este|esse) (\u00e1lbum|disco|cd|lp)"
+    ],
+    "ShuffleOn.intent": [
+        "(ligar|habilitar|definir|ligue|habilite|defina) (o|) (shuffle|embaralhamento) (como|) (|ligado)"
+    ]
+}

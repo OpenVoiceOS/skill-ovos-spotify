@@ -1,0 +1,32 @@
+{
+    "WhatArtist.intent": [
+        "czego (w\u0142a\u015bnie) (s\u0142ucham|s\u0142uchamy)",
+        "co to za artysta",
+        "kto to gra",
+        "co to za (zesp\u00f3\u0142|kapela)",
+        "jakiego zespo\u0142u (s\u0142ucham|s\u0142uchamy)",
+        "(kim jest|co to za) artysta"
+    ],
+    "WhatSong.intent": [
+        "co to leci",
+        "powiedz mi co (w\u0142a\u015bnie|to|) leci",
+        "czego (w\u0142a\u015bnie|) s\u0142ucham",
+        "co to za piosenka",
+        "co to (jest|) za piosenka",
+        "powiedz mi co to (jest|) za piosenka"
+    ],
+    "StopMusic.intent": [
+        "(zatrzymaj|przestaj gra\u0107) (w|) (spotify|muzyk\u0119)"
+    ],
+    "ShuffleOff.intent": [
+        "(w\u0142\u0105cz|wy\u0142\u0105cz) (mieszanie|tasowanie|odtwarzanie losowe) w spotify",
+        "Wy\u0142\u0105cz (losowanie|mieszanie|odtwarzanie losowe)"
+    ],
+    "WhatAlbum.intent": [
+        "co to jest za (album|nagranie|p\u0142yta)",
+        "co to (jest|) za (album|nagranie|p\u0142yta|cd)"
+    ],
+    "ShuffleOn.intent": [
+        "w\u0142\u0105cz (mieszanie|tasowanie|odtwarzanie losowe) w spotify"
+    ]
+}

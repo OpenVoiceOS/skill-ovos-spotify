@@ -1,0 +1,32 @@
+{
+    "WhatArtist.intent": [
+        "Qu'est ce que (je suis|nous sommes) en train d'\u00e9couter?",
+        "Quel est cet artiste ?",
+        "Qui joue \u00e7a?",
+        "(Quel est ce groupe?|Quel groupe chante ceci?)",
+        "Quel est le groupe (que nous \u00e9coutons|que tu joue)?",
+        "Quel est cet artiste?"
+    ],
+    "WhatSong.intent": [
+        "Qu'est-ce que l'on \u00e9coute?",
+        "Dis moi ce que l'on \u00e9coute",
+        "Qu'est-ce que (nous \u00e9coutons|j'\u00e9coute|l'on \u00e9coute)?",
+        "Quelle est cette chanson?",
+        "Quelle est cette chanson?",
+        "Dit moi quelle est cette chanson"
+    ],
+    "StopMusic.intent": [
+        "(Arr\u00eater|\u00e9teindre) la (musique|spotify)"
+    ],
+    "ShuffleOff.intent": [
+        "(\u00c9teindre|D\u00e9sactiver) la lecture al\u00e9atoire de spotify.",
+        "D\u00e9sactiver la lecture al\u00e9atoire de spotify"
+    ],
+    "WhatAlbum.intent": [
+        "(Quel est cet album|Quelle est cette chanson|Quel est ce cd|Quel est ce 33 tours)?",
+        "(Quel est cet album|Quelle est cette chanson|Quel est ce cd|Quel est ce 33 tours)?"
+    ],
+    "ShuffleOn.intent": [
+        "(Allumer|Autoriser|Mettre) la lecture al\u00e9atoire de spotify"
+    ]
+}

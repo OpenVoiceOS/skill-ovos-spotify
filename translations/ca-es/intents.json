@@ -1,0 +1,32 @@
+{
+    "WhatArtist.intent": [
+        "(a|) (qui|qu\u00e8) (estic|estem|) (escolto|escoltem|escoltant)",
+        "(qui|quin|quina|quins) (\u00e9s|s\u00f3n) (el|la|els) (artista|artistes)",
+        "qui (ho|) (est\u00e0|) (toca|tocant) (aix\u00f2|)",
+        "(quin|quina) (grup|banda|grup de m\u00fascia) \u00e9s aquest",
+        "(quin|quina) (grup|banda|grup de m\u00fascia) (est\u00e0s|esteu|) (reprodueixes|reproduint|reproduiu)",
+        "(quin|quina) artista \u00e9s (aquest|aquesta)"
+    ],
+    "WhatSong.intent": [
+        "(qu\u00e8 est\u00e0 sonant|qu\u00e8 sona)",
+        "(diga'm|diga'ns|digueu-me|digueu-nos)(qu\u00e8 est\u00e0 sonant|qu\u00e8 sona)",
+        "(a|) (qui|qu\u00e8) (estic|estem|) (escolto|escoltem|escoltant)",
+        "(quin|quina) (tema|can\u00e7\u00f3|pista) \u00e9s (aquest|aquesta|)",
+        "(quin|quina) \u00e9s (aquest|aquesta) (tema|can\u00e7\u00f3|pista)",
+        "(diga'm|diga'ns|digueu-me|digueu-nos) (quin|quina) \u00e9s (aquest|aquesta) (tema|can\u00e7\u00f3|pista) "
+    ],
+    "StopMusic.intent": [
+        "(para|atura||tanca|treu|treieu|pareu|atureu|) (la|el|l'|) (m\u00fasica|spotify)"
+    ],
+    "ShuffleOff.intent": [
+        "(para|atura||tanca|inhabilita|pareu|atureu) (l'aleatori|la reproducci\u00f3 aleat\u00f2ria|la llista de reproducci\u00f3) (de|del) spotify",
+        "treu (l'aleatori|la llista aleat\u00f2ria|la llista de reproducci\u00f3) (de|del) spotify"
+    ],
+    "WhatAlbum.intent": [
+        "(quin|quina) (\u00e0lbum|disc|pista|cd|lp|ep) \u00e9s (aquest|aquesta)",
+        "quin \u00e9s aquest (\u00e0lbum|disc|cd|lp|ep)"
+    ],
+    "ShuffleOn.intent": [
+        "(posa|poseu|activa|activeu|habilita) (l'aleatori|la reproducci\u00f3 aleat\u00f2ria|la llista de reproducci\u00f3) (de|del) spotify"
+    ]
+}

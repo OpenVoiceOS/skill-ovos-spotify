@@ -1,0 +1,32 @@
+{
+    "WhatArtist.intent": [
+        "naar wie (zijn wij|ben ik) aan het luisteren",
+        "(wie is|wie is) de artiest",
+        "(wie is|wie speelt) (dit|)",
+        "welke band is dit",
+        "welke band (luisteren we naar | jij naar)",
+        "welke artiest is dit"
+    ],
+    "WhatSong.intent": [
+        "(wat|wat) speelt er",
+        "vertel me(wat|wat) er speelt",
+        "waar (zijn wij|ben ik) naar aan het luisteren",
+        "welk nummer is dit",
+        "(wat is|wat is) dit liedje",
+        "vertel me (welk|wat voor) nummer dit is "
+    ],
+    "StopMusic.intent": [
+        "(stop|einde|zet uit) (de|) (muziek|spotify|)"
+    ],
+    "ShuffleOff.intent": [
+        "(zet(| uit)|schakel(| uit)) spotify (shuffle)",
+        "zet spotify shuffle uit"
+    ],
+    "WhatAlbum.intent": [
+        "wat (album|record|cd|lp) is (dit|dat)",
+        "wat is dit (album|record|cd|lp)"
+    ],
+    "ShuffleOn.intent": [
+        "zet spotify shuffle aan"
+    ]
+}

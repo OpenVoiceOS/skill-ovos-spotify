@@ -1,0 +1,124 @@
+{
+    "ListeningToPlaylist.dialog": [
+        "Lyssnar p\u00e5 spellistan {playlist}",
+        "Spelar nu spellistan {playlist}",
+        "Okej, nu spelar vi din spellista {playlist}",
+        "Uppfattat. H\u00e4r kommer {playlist}"
+    ],
+    "ListeningToSavedSongs.dialog": [
+        "Okej, l\u00e5t oss h\u00f6ra dina sparade l\u00e5tar.",
+        "L\u00e5t oss h\u00f6ra n\u00e5gra av dina sparade l\u00e5tar.",
+        "Spelar sparade l\u00e5tar."
+    ],
+    "AvailableDevices.dialog": [
+        "Jag hittar Spotify-enheter med namnen {devices}",
+        "Jag har hittat Spotify-enheterna {devices}"
+    ],
+    "NotConfigured.dialog": [
+        "Jag \u00e4r inte ansluten till ditt Spotify konto.  G\u00e5 till hem punkt mycroft punkt ai f\u00f6r att st\u00e4lla in din Spotify skill."
+    ],
+    "For.dialog": [
+        "efter"
+    ],
+    "NoSettingsReceived.dialog": [
+        "Inga inst\u00e4llningar har tagits emot \u00e4n, v\u00e4nta lite och f\u00f6rs\u00f6k igen",
+        "Inga inst\u00e4llningar har tagits emot \u00e4n, v\u00e4nta en stund och f\u00f6rs\u00f6k igen"
+    ],
+    "NoDevicesAvailable.dialog": [
+        "Jag kunde inte hitta n\u00e5gra Spotify-enheter.",
+        "Det finns inga Spotify enheter tillg\u00e4ngliga."
+    ],
+    "NoArtistResults.dialog": [
+        "Hmm, jag hittar inte den artisten.",
+        "Ledsen, jag hittar inte den artisten.",
+        "Jag verkar inte kunna hitta den artisten.",
+        "Artisten gav inga resultat.",
+        "Jag \u00e4r ledsen men jag hittade inget av den artisten.",
+        "\u00c5h nej, Jag hittade inte artisten du efterfr\u00e5gar."
+    ],
+    "PlaybackFailed.dialog": [
+        "Spotify kunde inte starta uppspelningen: {reason}"
+    ],
+    "And.dialog": [
+        "och"
+    ],
+    "by.dialog": [
+        "av"
+    ],
+    "ListeningToGenre.dialog": [
+        "Okej, vi lyssnar lite p\u00e5 {genre}. B\u00f6rjar med {track} av {artist}",
+        "L\u00e5t oss lyssna lite p\u00e5 {genre}. B\u00f6rja med {track} av {artist}",
+        "L\u00e5t oss lyssna p\u00e5 lite {genre} musik. Detta \u00e4r {track} av {artist}",
+        "Spelar {genre} musik. F\u00f6rst ut \u00e4r {track} med {artist}"
+    ],
+    "CurrentSong.dialog": [
+        "Vi lyssnar p\u00e5 {song} av {artist}",
+        "Jag spelar {song} av {artist}",
+        "{song} av {artist}"
+    ],
+    "NothingPlaying.dialog": [
+        "Inget spelas f\u00f6r n\u00e4rvarande",
+        "Jag spelar ingenting"
+    ],
+    "PlaylistNotFound.dialog": [
+        "Hittade inte spellistan",
+        "Ingen matchande spellista hittades"
+    ],
+    "ListeningToArtist.dialog": [
+        "Lyssnar nu p\u00e5 {artist}",
+        "Spelar {artist}",
+        "Spelar l\u00e5tar av {artist}"
+    ],
+    "ForAlbum.dialog": [
+        "efter artisten"
+    ],
+    "DeviceNotFound.dialog": [
+        "Jag kunde inte hitta enheten {name}",
+        "Det finns ingen spotify-enhet med namnet {name}"
+    ],
+    "FailedToStart.dialog": [
+        "Jag kunde inte starta Spotify-spelaren.  Kontrollera n\u00e4tverket och att ditt anv\u00e4ndarnamn och l\u00f6senord st\u00e4mmer."
+    ],
+    "ForArtist.dialog": [
+        " f\u00f6r artisten "
+    ],
+    "NoDefaultDeviceAvailable.dialog": [
+        "Jag kunde inte hitta n\u00e5gon Spot-ify enhet.  S\u00e4kerst\u00e4ll att Spot-ify k\u00f6rs, och att standard biblioteken har konfigurerats f\u00f6r denna f\u00e4rdighet",
+        "Jag kunde inte hitta n\u00e5gon Spotify enhet. S\u00e4kerst\u00e4ll att Spotify k\u00f6rs, eller att standard biblioteken har konfigurerats f\u00f6r denna f\u00e4rdighet"
+    ],
+    "ListeningToAlbumBy.dialog": [
+        "Lyssnar p\u00e5 {album} av {artist}.",
+        "Spelar nu {album} av {artist}."
+    ],
+    "NoResults.dialog": [
+        "Hmm, jag hittar inte det.",
+        "Ledsen, jag hittar inte det d\u00e4r.",
+        "Jag verkar inte kunna hitta n\u00e5got s\u00e5dant.",
+        "Det d\u00e4r gav inga resultat.",
+        "Jag \u00e4r ledsen men jag hittade inget f\u00f6r det d\u00e4r.",
+        "\u00c5h nej, Jag hittade inte det du efterfr\u00e5gar."
+    ],
+    "ListeningToSongBy.dialog": [
+        "Lyssnar p\u00e5 l\u00e5ten {tracks} av {artist}.",
+        "Spelar nu l\u00e5ten {tracks} av {artist}.",
+        "Spelar {tracks} av {artist}"
+    ],
+    "CurrentAlbum.dialog": [
+        "det h\u00e4r \u00e4r {album}",
+        "det \u00e4r {album}",
+        "vi lyssnar p\u00e5 {album}",
+        "Jag spelar {album}"
+    ],
+    "OnAlbum.dialog": [
+        "det \u00e4r {album}",
+        "det h\u00e4r \u00e4r fr\u00e5n {album}",
+        "detta sp\u00e5r finns p\u00e5 {album}"
+    ],
+    "NotAuthorized.dialog": [
+        "Kunde inte autentisera med Spotify. Var v\u00e4nlig och g\u00e5 till f\u00e4rdighets inst\u00e4llningarna p\u00e5 home punkt mycroft punkt A I f\u00f6r att verifiera ditt anv\u00e4ndarnamn, l\u00f6senord och f\u00e4rdighetens koppling till Spotify."
+    ],
+    "CurrentArtist.dialog": [
+        "det h\u00e4r \u00e4r {artist}",
+        "vi lyssnar p\u00e5 {artist}"
+    ]
+}

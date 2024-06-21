@@ -1,0 +1,32 @@
+{
+    "WhatArtist.intent": [
+        "a qui\u00e9n (estamos|estoy) escuchando",
+        "(qui\u00e9n es) el artista",
+        "(qui\u00e9n|qui\u00e9n est\u00e1) tocando (esto|)",
+        "qu\u00e9 banda es esta",
+        "qu\u00e9 banda (estamos escuchando|est\u00e1s poniendo)",
+        "qu\u00e9 artista es este"
+    ],
+    "WhatSong.intent": [
+        "(qu\u00e9 est\u00e1 sonando|qu\u00e9 suena)",
+        "dime (qu\u00e9 est\u00e1 sonando|qu\u00e9 suena)",
+        "qu\u00e9 (estamos|estoy) escuchando",
+        "qu\u00e9 canci\u00f3n es esta",
+        "(cu\u00e1l es) esta canci\u00f3n",
+        "dime (cu\u00e1l es) esta canci\u00f3n"
+    ],
+    "StopMusic.intent": [
+        "(para|quita|apaga) (la|el) (m\u00fasica|spotify)"
+    ],
+    "ShuffleOff.intent": [
+        "(para|det\u00e9n|deshabilita) (reproducci\u00f3n aleatoria|lista de reproducci\u00f3n) de spotify",
+        "quita la (reproducci\u00f3n aleatoria|lista de reproducci\u00f3n) de spotify"
+    ],
+    "WhatAlbum.intent": [
+        "qu\u00e9 (album|pista|cd|lp) es (esto|eso)",
+        "cu\u00e1l es este (album|disco|cd|lp)"
+    ],
+    "ShuffleOn.intent": [
+        "(pon|habilita|activa) (la|) (reproducci\u00f3n aleatoria|lista de reproducci\u00f3n) de spotify"
+    ]
+}

@@ -1,0 +1,124 @@
+{
+    "ListeningToPlaylist.dialog": [
+        "Escoitando a lista de reproduci\u00f3n {playlist}",
+        "Reproducindo agora a lista de reproduci\u00f3n {playlist}",
+        "Moi ben, imos escoitar a t\u00faa lista de reproduci\u00f3n {playlist}",
+        "Entend\u00edn. Seguinte, a t\u00faa lista de reproduci\u00f3n {playlist}"
+    ],
+    "ListeningToSavedSongs.dialog": [
+        "Moi ben, escoitemos as t\u00faas canci\u00f3ns gardadas.",
+        "Escoitemos algunhas das t\u00faas canci\u00f3ns gardadas.",
+        "Reproducindo as s\u00faas cancions gardadas."
+    ],
+    "AvailableDevices.dialog": [
+        "Vexo os dispositivos Spotify chamados: {devices}",
+        "Atopei dispositivos Spotify chamados: {devices}"
+    ],
+    "NotConfigured.dialog": [
+        "Non estou conectado \u00e1 t\u00faa conta Spotify a\u00ednda.  Vai a home punto mycroft punto A I para configurar a t\u00faa habilidade Spotify."
+    ],
+    "For.dialog": [
+        "para"
+    ],
+    "NoSettingsReceived.dialog": [
+        "Ningunha configuraci\u00f3n foi recibida a\u00ednda, por favor espera un pouco e int\u00e9ntao novamente",
+        "Ningunha configuraci\u00f3n foi recibida a\u00ednda, por favor espera un pouco e int\u00e9ntao novamente"
+    ],
+    "NoDevicesAvailable.dialog": [
+        "Non puiden atopar ning\u00fan dispositivo Spotify.",
+        "Non hai dispositivos Spotify dispo\u00f1ibles."
+    ],
+    "NoArtistResults.dialog": [
+        "Mmm, non consigo atopar este artista.",
+        "Desculpa, non consegu\u00edn atopar o artista.",
+        "Non consigo atopar este artista.",
+        "Non consegu\u00edn resultado para este artista.",
+        "Desculpa, non consegu\u00edn resultado para este artista.",
+        "Uh-uh, non conseguin atopar o artista que estabas procurando."
+    ],
+    "PlaybackFailed.dialog": [
+        "Spotify non consegu\u00edu iniciar a reproduci\u00f3n: {reason}"
+    ],
+    "And.dialog": [
+        "e"
+    ],
+    "by.dialog": [
+        "por"
+    ],
+    "ListeningToGenre.dialog": [
+        "Moi ben,imos escoitar un pouco de {genre}. Comezando por {track} de {artist}",
+        "Imos escoitar un pouco de {genre}. Comezando con {track} de {artist}",
+        "Imos escoitar un pouco de m\u00fasica {genre}. Isto \u00e9 {track} de {artist}",
+        "Reproducindo m\u00fasica {genre}. Comezando con {track} de {artist}"
+    ],
+    "CurrentSong.dialog": [
+        "Estamos o\u00edndo {song} de {artist}",
+        "Estou reproducindo {song} de {artist}",
+        "{song} de {artist}"
+    ],
+    "NothingPlaying.dialog": [
+        "Nada se est\u00e1 reproducindo actualmente",
+        "Non estou reproducindo nada"
+    ],
+    "PlaylistNotFound.dialog": [
+        "Lista de reproduci\u00f3n non encontrada",
+        "Non se atopou a lista de reproduci\u00f3n correspondente"
+    ],
+    "ListeningToArtist.dialog": [
+        "Escoitando agora {artist}",
+        "Escoitando {artista}",
+        "Reproducindo canci\u00f3ns de {artista}"
+    ],
+    "ForAlbum.dialog": [
+        "para o \u00e1lbum"
+    ],
+    "DeviceNotFound.dialog": [
+        "Non consegu\u00edn atopar o dispositivo {name}",
+        "Non hai un dispositivo spotify chamado {name}"
+    ],
+    "FailedToStart.dialog": [
+        "Non consegu\u00edn iniciar o reprodutor Spotify.  Por favor, verifica a t\u00faa conectividade de rede e se o teu nome de usuario e contrase\u00f1a est\u00e1n correctos."
+    ],
+    "ForArtist.dialog": [
+        " para o artista"
+    ],
+    "NoDefaultDeviceAvailable.dialog": [
+        "Non atopei ning\u00fan dispositivo Spot-ify predeterminado.  Verifica se o Spot-ify est\u00e1 en execuci\u00f3n ou se a habilidade foi configurada para usar as bibliotecas predeterminadas",
+        "on atopei ning\u00fan dispositivo Spot-ify predeterminado.  Verifica se o Spot-ify est\u00e1 en execuci\u00f3n ou se a habilidade foi configurada para usar as bibliotecas predeterminadas"
+    ],
+    "ListeningToAlbumBy.dialog": [
+        "Escoitando {album} de {artist}.",
+        "Reproducindo agora {album} de {artist}."
+    ],
+    "NoResults.dialog": [
+        "Mmm, non consigo atopar isto.",
+        "Desculpa, non consegu\u00edn atopar.",
+        "Non consigo atoparlo.",
+        "Non ocnsigo resultado para isto.",
+        "Desculpa, non consegu\u00edn resultado para isto.",
+        "Uh-uh, non consegu\u00edn atopar o que estabas procurando."
+    ],
+    "ListeningToSongBy.dialog": [
+        "Escoitando a canci\u00f3n {tracks} de {artist}.",
+        "Reproducindo agora a canci\u00f3n {tracks} de {artist}.",
+        "Reproducindo {tracks} de {artist}"
+    ],
+    "CurrentAlbum.dialog": [
+        "este \u00e9 {album}",
+        "isto \u00e9 {album}",
+        "estamos o\u00edndo {album}",
+        "Estou reproducindo {album}"
+    ],
+    "OnAlbum.dialog": [
+        "isto \u00e9 {album}",
+        "isto \u00e9 de {album}",
+        "esta pista est\u00e1 en {album}"
+    ],
+    "NotAuthorized.dialog": [
+        "Non \u00e9 posible autentificar o servizo Spotify. Por favor, vai a configuraci\u00f3ns da habilidade en home punto mycroft punto A I para verificar o teu nome de usuario e contrase\u00f1a para conectarse a Spotify."
+    ],
+    "CurrentArtist.dialog": [
+        "este \u00e9 {artist}",
+        "estamos o\u00edndo {artist}"
+    ]
+}

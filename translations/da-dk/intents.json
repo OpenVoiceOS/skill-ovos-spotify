@@ -1,0 +1,32 @@
+{
+    "WhatArtist.intent": [
+        "hvem lytter (vi|jeg) til",
+        "(hvem er|hvem er) kunstneren",
+        "(hvem|hvem) spiller (dette|)",
+        "hvilket band er dette",
+        "hvilket band (lytter vi til|afspiller du)",
+        "hvilken kunstner er dette"
+    ],
+    "WhatSong.intent": [
+        "(hvad|hvad) spiller",
+        "fort\u00e6l mig (hvad der|hvad der) spiller",
+        "hvad lytter (vi|jeg) til",
+        "hvilken sang er dette",
+        "(hvad er|hvad er) denne sang",
+        "fort\u00e6l mig (hvad|hvad) denne sang er"
+    ],
+    "StopMusic.intent": [
+        "(stop|afslut|slut|sluk) (musik|spotify|)"
+    ],
+    "ShuffleOff.intent": [
+        "(sluk|afbryd|deaktiv\u00e9r) Spotify (schuffle)",
+        "S\u00e6t Spotify shuffle off"
+    ],
+    "WhatAlbum.intent": [
+        "(hvilke|hvilket|hvilken) (album,plade,klip) er det",
+        "(hvilket|hvilke|hvad) (album|plade|cd|lp) er dette"
+    ],
+    "ShuffleOn.intent": [
+        "(t\u00e6nd|aktiver|set) Spotify shuffle (|on)"
+    ]
+}

@@ -1,0 +1,124 @@
+{
+    "ListeningToPlaylist.dialog": [
+        "S\u0142uchanie listy odtwarzania {playlist}",
+        "Teraz odtwarzasz list\u0119 odtwarzania {playlist}",
+        "Ok, pos\u0142uchalmy twojej listy {playlist}",
+        "Rozumiem. Nast\u0119pna twoja lista {playlist}"
+    ],
+    "ListeningToSavedSongs.dialog": [
+        "Ok, pos\u0142uchajmy twoich zapisanych piosenek.",
+        "Pos\u0142uchajmy twoich zapisanych piosenek.",
+        "Puszczam twoje zapisane piosenki."
+    ],
+    "AvailableDevices.dialog": [
+        "Widz\u0119 takie urz\u0105dzenia Spotify: {devices}",
+        "Znalaz\u0142em takie urz\u0105dzenia Spotify: {devices}"
+    ],
+    "NotConfigured.dialog": [
+        "Nie ma jeszcze po\u0142\u0105czenia z Twoim kontem Spotify. Przejd\u017a do home kropka mycroft kropka ai, aby skonfigurowa\u0107 umiej\u0119tno\u015bci Spotify."
+    ],
+    "For.dialog": [
+        "na"
+    ],
+    "NoSettingsReceived.dialog": [
+        "Ustawienia nie zosta\u0142y jeszcze zapisane, spr\u00f3buj ponownie za chwil\u0119.",
+        "Ustawienia nie zosta\u0142y jeszcze zapisane, spr\u00f3buj ponownie za chwil\u0119."
+    ],
+    "NoDevicesAvailable.dialog": [
+        "Nie mog\u0119 znale\u017a\u0107 \u017cadnych urz\u0105dze\u0144 po\u0142\u0105czonych ze Spotify.",
+        "Brak dost\u0119pnych urz\u0105dze\u0144 po\u0142\u0105czonych ze Spotify."
+    ],
+    "NoArtistResults.dialog": [
+        "Hmm, Nie mog\u0119 znale\u017a\u0107 tego artysty.",
+        "Przykro mi, nie mog\u0119 znale\u017a\u0107 tego artysty",
+        "Nie mog\u0119 znale\u017a\u0107 tego artysty.",
+        "Nie mog\u0119 znale\u017a\u0107 \u017cadnych utwor\u00f3w tego artysty.",
+        "Przykro mi, nie mog\u0119 znale\u017a\u0107 \u017cadnych wynik\u00f3w dla tego artysty.",
+        "Ohh, nie mog\u0119 znale\u017a\u0107 artysty kt\u00f3rego szukasz."
+    ],
+    "PlaybackFailed.dialog": [
+        "Spotify nie m\u00f3g\u0142 rozpocz\u0105\u0107 odtwarzania: {reason}"
+    ],
+    "And.dialog": [
+        "i"
+    ],
+    "by.dialog": [
+        "autorstwa"
+    ],
+    "ListeningToGenre.dialog": [
+        "Ok, pos\u0142uchajmy troch\u0119 {genre}. Zaczynaj\u0105c od {track} w wykonaniu {artist}",
+        "Ok, pos\u0142uchajmy troch\u0119 {genre}. Zaczynaj\u0105c od {track} w wykonaniu {artist}",
+        "Ok, pos\u0142uchajmy troch\u0119 {genre}. Zaczynaj\u0105c od {track} w wykonaniu {artist}",
+        "Odtwarzam {genre} Zaczynam od {track} w wykonaniu {artist}"
+    ],
+    "CurrentSong.dialog": [
+        "S\u0142uchamy utworu {song} w wykonaniu {artist}",
+        "Odtwarzam {song} w wykonaniu {artist}",
+        "{song} w wykonaniu {artist}"
+    ],
+    "NothingPlaying.dialog": [
+        "Obecnie nic nie jest odtwarzane.",
+        "Nic nie odtwarzam."
+    ],
+    "PlaylistNotFound.dialog": [
+        "Nie znaleziono listy odtwarzania",
+        "Nie znaleziono pasuj\u0105cej listy odtwarzania"
+    ],
+    "ListeningToArtist.dialog": [
+        "Teraz s\u0142uchasz {artist}",
+        "S\u0142uchasz {artist}",
+        "Odtwarzam utwory autorstwa {artist}"
+    ],
+    "ForAlbum.dialog": [
+        "na album"
+    ],
+    "DeviceNotFound.dialog": [
+        "Nie mog\u0119 znale\u017a\u0107 urz\u0105dzenia {name}",
+        "Nie ma urz\u0105dzenia Spotify o nazwie {name}"
+    ],
+    "FailedToStart.dialog": [
+        "Nie mog\u0142em uruchomi\u0107 odtwarzacza Spotify. Prosz\u0119 sprawdzi\u0107 po\u0142\u0105czenie z sieci\u0105 oraz czy nazwa u\u017cytkownika i has\u0142o s\u0105 poprawne."
+    ],
+    "ForArtist.dialog": [
+        " dla artysty "
+    ],
+    "NoDefaultDeviceAvailable.dialog": [
+        "Nie moge znale\u017a\u0107 \u017cadnego domy\u015blnego urz\u0105dzenia Spotify. Upewnij si\u0119, \u017ce Spotify dzia\u0142a lub \u017ce umiej\u0119tno\u015b\u0107 zosta\u0142a skonfigurowana do korzystania z domy\u015blnych bibliotek",
+        "Nie ma domy\u015blnego urz\u0105dzenia Spotify. Upewnij si\u0119, \u017ce Spotify dzia\u0142a lub \u017ce umiej\u0119tno\u015b\u0107 zosta\u0142a skonfigurowana do korzystania z domy\u015blnych bibliotek"
+    ],
+    "ListeningToAlbumBy.dialog": [
+        "S\u0142uchasz {album} autorstwa {artist}.",
+        "Odtwarzam {album} autorstwa {artist}"
+    ],
+    "NoResults.dialog": [
+        "Hmm, nie mog\u0119 tego znale\u017a\u0107.",
+        "Przykro mi, nie mog\u0119 tego znale\u017a\u0107.",
+        "Nie mog\u0119 tego znale\u017a\u0107.",
+        "Nie znalaz\u0142em \u017cadnych wynik\u00f3w.",
+        "Przykro mi, ale nie znalaz\u0142em \u017cadnych wynik\u00f3w.",
+        "Uh-oh, nie znalaz\u0142em tego, czego szukasz."
+    ],
+    "ListeningToSongBy.dialog": [
+        "S\u0142uchasz utworu {tracks}, w wykonaniu {artist}",
+        "Teraz odtwarzam utw\u00f3r {tracks}, w wykonaniu {artist}",
+        "Odtwarzam {tracks} w wykonaniu {artist}"
+    ],
+    "CurrentAlbum.dialog": [
+        "to jest {album}",
+        "to {album}",
+        "S\u0142uchamy {album}",
+        "Odtwarzam {album}"
+    ],
+    "OnAlbum.dialog": [
+        "to {album}",
+        "to jest z {album}",
+        "To utw\u00f3r z {album}"
+    ],
+    "NotAuthorized.dialog": [
+        "Nie mo\u017cna zautoryzowa\u0107 za pomoc\u0105 us\u0142ugi Spotify. Przejd\u017a do ustawie\u0144 umiej\u0119tno\u015bci na home kropka mycroft kropka ai, aby zweryfikowa\u0107 swoj\u0105 nazw\u0119 u\u017cytkownika i has\u0142o oraz po\u0142\u0105czy\u0107 si\u0119 z Spotify."
+    ],
+    "CurrentArtist.dialog": [
+        "to jest {artist}",
+        "S\u0142uchamy {artist}"
+    ]
+}

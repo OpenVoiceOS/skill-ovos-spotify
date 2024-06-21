@@ -1,0 +1,124 @@
+{
+    "ListeningToPlaylist.dialog": [
+        "Je luistert naar de afspeellijst {playlist}",
+        "We spelen nu de afspeellijst {playlist}",
+        "OK, hier komt je afspeellijst {playlist}",
+        "Begrepen. We gaan door met je afspeellijst {playlist}"
+    ],
+    "ListeningToSavedSongs.dialog": [
+        "Ok\u00e9, laten we je opgeslagen nummers horen.",
+        "Laten we enkele van je opgeslagen nummers horen.",
+        "Je opgeslagen nummers afspelen."
+    ],
+    "AvailableDevices.dialog": [
+        "Ik zie de Spotify apparaten genaamd: {devices}",
+        "ik heb de Spotify apparaten genaamd: {devices} gevonden"
+    ],
+    "NotConfigured.dialog": [
+        "Ik ben nog niet verbonden met jouw Spotify account. Ga naar home punt mycroft punt ai om jouw Spotify skill in te stellen."
+    ],
+    "For.dialog": [
+        "voor"
+    ],
+    "NoSettingsReceived.dialog": [
+        "Er zijn nog geen instellingen ontvangen. Wacht even en probeer het opnieuw",
+        "Er zijn nog geen instellingen ontvangen. Wacht even en probeer het opnieuw"
+    ],
+    "NoDevicesAvailable.dialog": [
+        "Ik zie geen Spotify-apparaten.",
+        "Er zijn geen Spotify-apparaten voorhanden."
+    ],
+    "NoArtistResults.dialog": [
+        "Hmm, die vind ik niet.",
+        "Excuseer me, die kan ik niet vinden.",
+        "Die lijk ik niet te kunnen vinden.",
+        "Ik krijg hier geen zoekresultaten op.",
+        "Sorry, daar krijg ik geen resultaten op.",
+        "Oeps, die kan ik niet vinden."
+    ],
+    "PlaybackFailed.dialog": [
+        "Spotify kon afspelen niet starten: {reason}"
+    ],
+    "And.dialog": [
+        "en"
+    ],
+    "by.dialog": [
+        "van"
+    ],
+    "ListeningToGenre.dialog": [
+        "OK, tijd voor {genre}. We beginnen met {track} door {artist}",
+        "Tijd voor {genre}. We beginnen met {track} door {artist}",
+        "Ruim baan voor {genre}muziek. Dit is {track} van {artist}",
+        "Ik speel {genre}muziek. Te beginnen bij {track} van {artist}"
+    ],
+    "CurrentSong.dialog": [
+        "We luisteren naar {song} van {artist}",
+        "Ik speel {song} van {artist}",
+        "{song} door {artist}"
+    ],
+    "NothingPlaying.dialog": [
+        "Er speel momenteel niets af",
+        "Ik ben niets aan het afslepen"
+    ],
+    "PlaylistNotFound.dialog": [
+        "Afspeellijst niet gevonden",
+        "Geen overeenkomende afspeellijst gevonden"
+    ],
+    "ListeningToArtist.dialog": [
+        "{artist} speelt",
+        "Je luistert naar {artist}",
+        "Ik speel nu nummers van {artist}"
+    ],
+    "ForAlbum.dialog": [
+        "voor het album"
+    ],
+    "DeviceNotFound.dialog": [
+        "Ik kon het {name} toestel niet vinden",
+        "Er is geen spotify toestel met naam {name}"
+    ],
+    "FailedToStart.dialog": [
+        "Ik kan de Spotify speler niet starten. Check je internetverbinding en je gebruikersnaam en wachtwoord."
+    ],
+    "ForArtist.dialog": [
+        "voor de muzikant"
+    ],
+    "NoDefaultDeviceAvailable.dialog": [
+        "Ik kan je standaard Spotify-apparaat niet vinden. Zorg dat Spotify werkt, of dat de skill is ingesteld om de standaard bibliotheken te gebruiken.",
+        "Er lijkt geen standaard Spotify-apparaat voorhanden. Zorg dat Spotify werkt, of dat de skill is ingesteld om de standaard bibliotheken te gebruiken."
+    ],
+    "ListeningToAlbumBy.dialog": [
+        "Je luistert naar {album} van {artist}.",
+        "{album} van {artist} speelt nu."
+    ],
+    "NoResults.dialog": [
+        "Hmm, niet te vinden.",
+        "Sorry, onvindbaar.",
+        "Ik lijk het niet te kunnen vinden.",
+        "Ik krijg hier geen resultaten op.",
+        "Mijn excuses, ik krijg hier geen resultaten op.",
+        "Oeps, wat je zoekt, kan ik niet vinden."
+    ],
+    "ListeningToSongBy.dialog": [
+        "Je luistert naar het nummer {tracks} van {artist}.",
+        "We spelen nu {tracks} van {artist}.",
+        "Ik speel {tracks} van {artist}"
+    ],
+    "CurrentAlbum.dialog": [
+        "dit is {album}",
+        "het is {album}",
+        "we luisteren naar {album}",
+        "Ik speel {album}"
+    ],
+    "OnAlbum.dialog": [
+        "het is {album}",
+        "dit is van {album}",
+        "deze track staat op {album}"
+    ],
+    "NotAuthorized.dialog": [
+        "Kan niet autoriseren bij de Spotify service. Ga alsjeblieft naar de Skill instellingen bij home punt mycroft punt A I om jouw gebruikersnaam en wachtwoord te verifieren en te verbinden met Spotify."
+    ],
+    "CurrentArtist.dialog": [
+        "dit is {artist}",
+        "we luisteren naar {artist}"
+    ]
+}

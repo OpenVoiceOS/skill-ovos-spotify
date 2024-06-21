@@ -1,0 +1,5 @@
+{
+    "ToDevice.rx": [
+        "su (?P<ToDevice>.+)"
+    ]
+}

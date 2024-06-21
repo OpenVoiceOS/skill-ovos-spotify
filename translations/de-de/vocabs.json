@@ -1,0 +1,29 @@
+{
+    "Spotify.voc": [
+        "Spotify",
+        "Benutze Spotify",
+        "mit Spotify",
+        "auf Spotify"
+    ],
+    "Transfer.voc": [
+        "\u00fcbertrage",
+        "bewege"
+    ],
+    "For.voc": [
+        "nach",
+        "nach Album",
+        "nach dem Album",
+        "den K\u00fcnstler",
+        "nach dem K\u00fcnstler"
+    ],
+    "Device.voc": [
+        "Ger\u00e4t",
+        "Ger\u00e4t",
+        "Ger\u00e4te",
+        "Ger\u00e4te"
+    ],
+    "Search.voc": [
+        "suche",
+        "suche nach"
+    ]
+}

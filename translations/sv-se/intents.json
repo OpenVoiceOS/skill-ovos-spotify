@@ -1,0 +1,32 @@
+{
+    "WhatArtist.intent": [
+        "vem lyssnar (vi|jag) till",
+        "(vem \u00e4r|vem) artisten",
+        "(vem \u00e4r|vem) spelar (detta|) ",
+        "vilken grupp \u00e4r detta",
+        "vilken grupp (lyssnar vi till|spelar jag)",
+        "vilken artist \u00e4r detta"
+    ],
+    "WhatSong.intent": [
+        "(vad \u00e4r|vad) spelar",
+        "tala om f\u00f6r mig (vad|vad som) spelas",
+        "vad lyssnar (vi|jag) till",
+        "vad \u00e4r det f\u00f6r l\u00e5t",
+        "(vad|vad \u00e4r) denna s\u00e5ng",
+        "tala om f\u00f6r mig (vad|vad \u00e4r) detta f\u00f6r s\u00e5ng"
+    ],
+    "StopMusic.intent": [
+        "(stoppa|sluta|st\u00e4ng av) (|) (musik|spotify|)"
+    ],
+    "ShuffleOff.intent": [
+        "(sl\u00e5(| ifr\u00e5n)|v\u00e4xla(| ifr\u00e5n)|inaktivera|fr\u00e5nkoppla) spotify (shuffle|blanda)",
+        "s\u00e4tt spotify (shuffle|blanda) till fr\u00e5n"
+    ],
+    "WhatAlbum.intent": [
+        "vilket (album|skiva|cd|lp) \u00e4r (detta|det d\u00e4r)",
+        "vad \u00e4r detta f\u00f6r (album|skiva|cd|lp)"
+    ],
+    "ShuffleOn.intent": [
+        "(sl\u00e5 p\u00e5|aktivera|s\u00e4tt) spotify (shuffle|blanda)(| till)"
+    ]
+}

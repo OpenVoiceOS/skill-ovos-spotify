@@ -1,0 +1,5 @@
+{
+    "ToDevice.rx": [
+        "para (?P<ToDevice>.+)"
+    ]
+}

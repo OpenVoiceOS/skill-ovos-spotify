@@ -1,0 +1,124 @@
+{
+    "ListeningToPlaylist.dialog": [
+        "Du h\u00f6rst die Playlist {playlist}",
+        "Jetzt spielt die Playlist {playlist}",
+        "Okay, Lass uns deine Playlist {playlist} h\u00f6ren.",
+        "Roger. Als n\u00e4chstes deine Playlist {playlist}"
+    ],
+    "ListeningToSavedSongs.dialog": [
+        "Okay, lass uns deine gespeicherten Lieder h\u00f6ren.",
+        "H\u00f6ren wir uns einige deiner gespeicherten Lieder an.",
+        "Spiele deine gespeicherten Lieder."
+    ],
+    "AvailableDevices.dialog": [
+        "Ich sehe die Spotify Ger\u00e4te mit den Namen: {devices}",
+        "Ich fand die Spotify Ger\u00e4te mit dem Namen: {devices}"
+    ],
+    "NotConfigured.dialog": [
+        "Ich bin noch nicht mit deinem Spotify Konto verbunden.  Gehe zu home punkt mycroft punkt a i, um den Spotify Skill einzurichten."
+    ],
+    "For.dialog": [
+        "nach"
+    ],
+    "NoSettingsReceived.dialog": [
+        "Es wurden noch keine Einstellungen erhalten, bitte warte ein Moment und versuche es erneut.",
+        "Es wurden noch keine Einstellungen erhalten, bitte warte eine Weile und probiere es dann erneut."
+    ],
+    "NoDevicesAvailable.dialog": [
+        "Ich konnte keine Spotify Ger\u00e4te finden.",
+        "Es sind keine Spotify Ger\u00e4te verf\u00fcgbar."
+    ],
+    "NoArtistResults.dialog": [
+        "Hmm, Ich kann den K\u00fcnstler nicht finden.",
+        "Entschuldigung, Ich kann den K\u00fcnstler nicht finden.",
+        "Ich kann wohl nichts zu dem K\u00fcnstler finden.",
+        "Ich bekomme kein Ergebnis f\u00fcr den K\u00fcnstler.",
+        "Entschuldigung, Ich bekomme kein Ergebnis f\u00fcr den K\u00fcnstler.",
+        "oho, Ich finde nichts zu dem K\u00fcnstler den du suchst."
+    ],
+    "PlaybackFailed.dialog": [
+        "Spotify konnte Wiedergabe nicht starten: {reason}"
+    ],
+    "And.dialog": [
+        "und"
+    ],
+    "by.dialog": [
+        "von"
+    ],
+    "ListeningToGenre.dialog": [
+        "Okay, lass und ein wenig {genre} h\u00f6ren. Starten wir mit {track} von {artist}",
+        "Lass uns etwas {genre} h\u00f6ren. Starten wir mit {track} von {artist}",
+        "Lass uns etwas {genre} Musik h\u00f6ren. Das ist {track} von {artist}",
+        "Spiele {genre} Musik. Beginne mit {track} von {artist}"
+    ],
+    "CurrentSong.dialog": [
+        "Wir h\u00f6ren {song} von {artist}",
+        "Ich spiele {song} von {artist}",
+        "{song} von {artist}"
+    ],
+    "NothingPlaying.dialog": [
+        "Momentan wird nichts abgespielt",
+        "Ich spiele nichts ab"
+    ],
+    "PlaylistNotFound.dialog": [
+        "Playlist nicht gefunden",
+        "Es wurde keine \u00fcbereinstimmende Playlist gefunden"
+    ],
+    "ListeningToArtist.dialog": [
+        "Jetzt h\u00f6rst du {artist}",
+        "Dem {artist} zuh\u00f6ren",
+        "Spiele Lieder von {artist}"
+    ],
+    "ForAlbum.dialog": [
+        "nach dem Album"
+    ],
+    "DeviceNotFound.dialog": [
+        "Ich konnte das Ger\u00e4t {name} nicht finden",
+        "Es gibt kein Spotify Ger\u00e4t namens {name}"
+    ],
+    "FailedToStart.dialog": [
+        "Ich konnte den Spotify-Player nicht starten.  Bitte \u00fcberpr\u00fcfe die Netzwerkverbindung, den Benutzernamen und dein Password."
+    ],
+    "ForArtist.dialog": [
+        " nach dem K\u00fcnstler "
+    ],
+    "NoDefaultDeviceAvailable.dialog": [
+        "Ich konnte kein Standard Spotify Ger\u00e4t finden.  Stelle sicher, dass Spotify l\u00e4uft, oder dass der Skill konfiguriert ist, die Standardbibliotheken zu nutzen",
+        "Es ist kein Standard Spotify Ger\u00e4t verf\u00fcgbar. Stelle sicher, dass Spotify l\u00e4uft, oder dass der Skill konfiguriert ist, die Standardbibliotheken zu nutzen"
+    ],
+    "ListeningToAlbumBy.dialog": [
+        "H\u00f6re das {album} von {artist}.",
+        "Jetzt l\u00e4uft {album} von {artist}."
+    ],
+    "NoResults.dialog": [
+        "Hmm, Ich kann das nicht finden.",
+        "Entschuldigung, Ich kann das nicht finden.",
+        "Ich kann es leider nicht finden.",
+        "Ich bekomme keine Ergebnisse daf\u00fcr.",
+        "Entschuldigung, ich bekomme keine Ergebnisse.",
+        "oho, Ich konnte leider nicht finden, wonach du suchst."
+    ],
+    "ListeningToSongBy.dialog": [
+        "Du h\u00f6rst das Lied {tracks} von {artist}.",
+        "Jetzt l\u00e4uft das Lied {tracks} von {artist}.",
+        "Spiele {tracks} von {artist}"
+    ],
+    "CurrentAlbum.dialog": [
+        "das ist {album}",
+        "es ist {album}",
+        "wir h\u00f6ren {album}",
+        "Ich spiele {album}"
+    ],
+    "OnAlbum.dialog": [
+        "es ist {album}",
+        "dies ist vom {album}",
+        "dieser Titel ist aus {album}"
+    ],
+    "NotAuthorized.dialog": [
+        "Autorisierung mit dem Spotify-Dienst nicht m\u00f6glich. Bitte gehe zu den Skill-Einstellungen unter Home Punkt Mycroft Punkt a i, um deinen Nutzernamen und dein Kennwort zu best\u00e4tigen und dich mit Spotify zu verbinden."
+    ],
+    "CurrentArtist.dialog": [
+        "das ist {artist}",
+        "wir h\u00f6ren {artist}"
+    ]
+}
