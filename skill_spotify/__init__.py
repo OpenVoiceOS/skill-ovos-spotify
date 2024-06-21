@@ -1,7 +1,7 @@
 from os.path import join, dirname
 from typing import Iterable, Union
 from ovos_utils import classproperty
-from ovos_utils.ocp import MediaType, PlaybackType, MediaEntry, Playlist
+from ovos_workshop.backwards_compat import MediaType, PlaybackType, MediaEntry, Playlist
 from ovos_utils.process_utils import RuntimeRequirements
 from ovos_workshop.decorators.ocp import ocp_search
 from ovos_workshop.skills.common_play import OVOSCommonPlaybackSkill
