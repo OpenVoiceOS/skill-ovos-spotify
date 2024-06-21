@@ -1,9 +1,8 @@
 from os.path import join, dirname
-
+from typing import Iterable, Union
 from ovos_utils import classproperty
-from ovos_utils.ocp import MediaType, PlaybackType
+from ovos_workshop.backwards_compat import MediaType, PlaybackType, MediaEntry, Playlist
 from ovos_utils.process_utils import RuntimeRequirements
-
 from ovos_workshop.decorators.ocp import ocp_search
 from ovos_workshop.skills.common_play import OVOSCommonPlaybackSkill
 from skill_spotify.spotify import SpotifyClient
@@ -20,127 +19,109 @@ class SpotifySkill(OVOSCommonPlaybackSkill):
         return RuntimeRequirements(internet_before_load=True,
                                    requires_internet=True)
 
-    def search_artists(self, query):
+    def search_artists(self, query) -> Iterable[Playlist]:
         score, data = self.spotify.query_artist(query)
 
         for artist in data["data"]["artists"]["items"]:
-
             uri = artist["uri"]
-            playlist = []
-
+            playlist = Playlist(
+                title=artist["name"] + " (Featured Tracks)",
+                image=artist["images"][-1]["url"] if artist["images"] else "",
+                match_confidence=score,
+                media_type=MediaType.MUSIC,
+                playback=PlaybackType.AUDIO,
+                skill_id=self.skill_id,
+                skill_icon=self.skill_icon
+            )
             for t in self.spotify.tracks_from_artist(uri):
-                playlist.append({
-                    "title": t["name"],
-                    "duration": t["duration_ms"] / 1000,
-                    "artist": artist["name"],
-                    "match_confidence": score,
-                    "media_type": MediaType.MUSIC,
-                    "uri": t["uri"],
-                    "playback": PlaybackType.AUDIO,
-                    "skill_icon": self.skill_icon,
-                    "skill_id": self.skill_id,
-                    "image": artist["images"][-1]["url"] if artist["images"] else "",
-                    "bg_image": artist["images"][0]["url"] if artist["images"] else ""
-                })
+                playlist.append(MediaEntry(media_type=MediaType.MUSIC,
+                                           uri=t["uri"],
+                                           title=t["name"],
+                                           playback=PlaybackType.AUDIO,
+                                           image=artist["images"][-1]["url"] if artist["images"] else "",
+                                           skill_id=self.skill_id,
+                                           artist=artist["name"],
+                                           match_confidence=min(100, score),
+                                           length=t["duration_ms"] / 1000,
+                                           skill_icon=self.skill_icon))
+                if len(playlist) > 25:
+                    break
+            yield playlist
 
-            entry = {
-                "match_confidence": score,
-                "media_type": MediaType.MUSIC,
-                "playlist": playlist[:25],
-                "playback": PlaybackType.AUDIO,
-                "skill_icon": self.skill_icon,
-                "skill_id": self.skill_id,
-                "image": artist["images"][-1]["url"] if artist["images"] else "",
-                "bg_image": artist["images"][0]["url"] if artist["images"] else "",
-                "title": artist["name"] + " (Featured Tracks)"
-            }
-            yield entry
-
-    def search_albums(self, query):
+    def search_albums(self, query) -> Iterable[Playlist]:
         score, data = self.spotify.query_album(query)
 
         for album in data["data"]["albums"]["items"]:
             uri = album["uri"]
-            playlist = []
+            playlist = Playlist(
+                title=album["name"] + " (Full Album)",
+                image=album["images"][-1]["url"] if album["images"] else "",
+                match_confidence=score,
+                media_type=MediaType.MUSIC,
+                playback=PlaybackType.AUDIO,
+                skill_id=self.skill_id,
+                skill_icon=self.skill_icon
+            )
             for t in self.spotify.tracks_from_album(uri):
                 artist = t["artists"][0]
-                playlist.append({
-                    "title": t["name"],
-                    "duration": t["duration_ms"] / 1000,
-                    "artist": artist["name"],
-                    "match_confidence": score,
-                    "media_type": MediaType.MUSIC,
-                    "uri": t["uri"],
-                    "playback": PlaybackType.AUDIO,
-                    "skill_icon": self.skill_icon,
-                    "skill_id": self.skill_id,
-                    "image": album["images"][-1]["url"] if album["images"] else "",
-                    "bg_image": album["images"][0]["url"] if album["images"] else ""
-                })
-            entry = {
-                "match_confidence": score,
-                "media_type": MediaType.MUSIC,
-                "playlist": playlist[:25],
-                "playback": PlaybackType.AUDIO,
-                "skill_icon": self.skill_icon,
-                "skill_id": self.skill_id,
-                "image": album["images"][-1]["url"] if album["images"] else "",
-                "bg_image": album["images"][0]["url"] if album["images"] else "",
-                "title": album["name"] + " (Full Album)"
-            }
-            yield entry
+                playlist.append(MediaEntry(media_type=MediaType.MUSIC,
+                                           uri=t["uri"],
+                                           title=t["name"],
+                                           playback=PlaybackType.AUDIO,
+                                           image=album["images"][-1]["url"] if album["images"] else "",
+                                           skill_id=self.skill_id,
+                                           artist=artist["name"],
+                                           match_confidence=min(100, score),
+                                           length=t["duration_ms"] / 1000,
+                                           skill_icon=self.skill_icon))
+                if len(playlist) > 25:
+                    break
+            yield playlist
 
-    def search_tracks(self, query):
+    def search_tracks(self, query) -> Iterable[MediaEntry]:
         score, data = self.spotify.query_song(query)
 
         for track in data["data"]["tracks"]["items"]:
             album = track["album"]
-            entry = {
-                "title": track["name"],
-                "duration": track["duration_ms"] / 1000,
-                "match_confidence": score,
-                "media_type": MediaType.MUSIC,
-                "uri": track["uri"],
-                "playback": PlaybackType.AUDIO,
-                "skill_icon": self.skill_icon,
-                "skill_id": self.skill_id,
-                "image": album["images"][-1]["url"] if album["images"] else "",
-                "bg_image": album["images"][0]["url"] if album["images"] else ""
-            }
-            yield entry
+            yield MediaEntry(media_type=MediaType.MUSIC,
+                             uri=track["uri"],
+                             title=track["name"],
+                             playback=PlaybackType.AUDIO,
+                             image=album["images"][-1]["url"] if album["images"] else "",
+                             skill_id=self.skill_id,
+                             # artist=ch.artist,
+                             match_confidence=min(100, score),
+                             length=track["duration_ms"] / 1000,
+                             skill_icon=self.skill_icon)
 
-    def search_playlists(self, query):
+    def search_playlists(self, query) -> Iterable[Playlist]:
         data, score = self.spotify.get_best_user_playlist(query)
         uri = data["uri"]
-        playlist = []
+        playlist = Playlist(
+                title=data["name"],
+                image=data["images"][-1]["url"] if data["images"] else "",
+                match_confidence=score,
+                media_type=MediaType.MUSIC,
+                playback=PlaybackType.AUDIO,
+                skill_id=self.skill_id,
+                skill_icon=self.skill_icon
+            )
         for t in self.spotify.tracks_from_playlist(uri)["items"]:
             t = t["track"]
             artist = t["artists"][0]
-            playlist.append({
-                "title": t["name"],
-                "duration": t["duration_ms"] / 1000,
-                "artist": artist["name"],
-                "match_confidence": score,
-                "media_type": MediaType.MUSIC,
-                "uri": t["uri"],
-                "playback": PlaybackType.AUDIO,
-                "skill_icon": self.skill_icon,
-                "skill_id": self.skill_id,
-                "image": data["images"][-1]["url"] if data["images"] else "",
-                "bg_image": data["images"][0]["url"] if data["images"] else ""
-            })
-        entry = {
-            "match_confidence": score,
-            "media_type": MediaType.MUSIC,
-            "playlist": playlist[:25],
-            "playback": PlaybackType.AUDIO,
-            "skill_icon": self.skill_icon,
-            "skill_id": self.skill_id,
-            "image": data["images"][-1]["url"] if data["images"] else "",
-            "bg_image": data["images"][0]["url"] if data["images"] else "",
-            "title": data["name"]
-        }
-        yield entry
+            playlist.append(MediaEntry(media_type=MediaType.MUSIC,
+                                       uri=t["uri"],
+                                       title=t["name"],
+                                       playback=PlaybackType.AUDIO,
+                                       image=data["images"][-1]["url"] if data["images"] else "",
+                                       skill_id=self.skill_id,
+                                       artist=artist["name"],
+                                       match_confidence=min(100, score),
+                                       length=t["duration_ms"] / 1000,
+                                       skill_icon=self.skill_icon))
+            if len(playlist) > 25:
+                break
+        yield playlist
 
     # multiple decorators are used to execute the search in parallel
     @ocp_search()
@@ -152,8 +133,8 @@ class SpotifySkill(OVOSCommonPlaybackSkill):
             base_score += 15
         phrase = self.remove_voc(phrase, "spotify")
         for res in self.search_artists(phrase):
-            res["match_confidence"] += base_score
-            res["match_confidence"] = min(100, res["match_confidence"])
+            res.match_confidence += base_score
+            res.match_confidence = min(100, res.match_confidence)
             yield res
 
     @ocp_search()
@@ -165,8 +146,8 @@ class SpotifySkill(OVOSCommonPlaybackSkill):
             base_score += 15
         phrase = self.remove_voc(phrase, "spotify")
         for res in self.search_albums(phrase):
-            res["match_confidence"] += base_score
-            res["match_confidence"] = min(100, res["match_confidence"])
+            res.match_confidence += base_score
+            res.match_confidence = min(100, res.match_confidence)
             yield res
 
     @ocp_search()
@@ -178,8 +159,8 @@ class SpotifySkill(OVOSCommonPlaybackSkill):
             base_score += 15
         phrase = self.remove_voc(phrase, "spotify")
         for res in self.search_tracks(phrase):
-            res["match_confidence"] += base_score
-            res["match_confidence"] = min(100, res["match_confidence"])
+            res.match_confidence += base_score
+            res.match_confidence = min(100, res.match_confidence)
             yield res
 
     @ocp_search()
@@ -191,8 +172,8 @@ class SpotifySkill(OVOSCommonPlaybackSkill):
             base_score += 15
         phrase = self.remove_voc(phrase, "spotify")
         for res in self.search_playlists(phrase):
-            res["match_confidence"] += base_score
-            res["match_confidence"] = min(100, res["match_confidence"])
+            res.match_confidence += base_score
+            res.match_confidence = min(100, res.match_confidence)
             yield res
 
 
