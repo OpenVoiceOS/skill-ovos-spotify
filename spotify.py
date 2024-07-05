@@ -11,7 +11,7 @@ from spotipy import SpotifyOAuth
 from spotipy.oauth2 import SpotifyAuthBase
 
 from ovos_utils.log import LOG
-from ovos_utils.parse import match_one, fuzzy_match
+from ovos_utils.parse import match_one, fuzzy_match, MatchStrategy
 from ovos_utils.xdg_utils import xdg_config_home
 from ovos_workshop.backwards_compat import PlaybackType, MediaType
 
@@ -81,8 +81,7 @@ class OVOSSpotifyCredentials(SpotifyAuthBase):
 
 class SpotifyClient:
     # Return value definition indication nothing was found
-    # (confidence None, data None)
-    NOTHING_FOUND = (None, 0.0)
+    NOTHING_FOUND = (0.0, None)
     # Confidence levels for generic play handling
     DIRECT_RESPONSE_CONFIDENCE = 0.8
 
@@ -92,6 +91,8 @@ class SpotifyClient:
         self._spotify = None
         self.__playlists_fetched = 0
         self._playlists = None
+        self.__device_list = None
+        self.__devices_fetched = 0
 
     @property
     def spotify(self):
@@ -127,8 +128,8 @@ class SpotifyClient:
         """
         best = title.lower()
         best_stripped = re.sub(r'(\(.+\)|-.+)$', '', best).strip()
-        return max(fuzzy_match(best, query),
-                   fuzzy_match(best_stripped, query))
+        return max(fuzzy_match(best, query, strategy=MatchStrategy.DAMERAU_LEVENSHTEIN_SIMILARITY),
+                   fuzzy_match(best_stripped, query, strategy=MatchStrategy.DAMERAU_LEVENSHTEIN_SIMILARITY))
 
     def load_credentials(self):
         """ Retrieve credentials from the backend and connect to Spotify """
@@ -137,6 +138,17 @@ class SpotifyClient:
             self._spotify = spotipy.Spotify(auth_manager=creds)
         except(HTTPError, SpotifyNotAuthorizedError):
             LOG.error('Couldn\'t fetch spotify credentials')
+
+    @property
+    def devices(self):
+        """ Devices, cached for 60 seconds """
+        if not self.spotify:
+            return []  # No connection, no devices
+        now = time.time()
+        if not self.__device_list or (now - self.__devices_fetched > 60):
+            self.__device_list = self.spotify.devices().get('devices', [])
+            self.__devices_fetched = now
+        return self.__device_list
 
     @property
     def playlists(self):
@@ -163,7 +175,7 @@ class SpotifyClient:
         data = self.spotify.search(artist, type='artist')
         if data and data['artists']['items']:
             best = data['artists']['items'][0]['name']
-            confidence = fuzzy_match(best, artist.lower()) + bonus
+            confidence = fuzzy_match(best, artist.lower(), strategy=MatchStrategy.DAMERAU_LEVENSHTEIN_SIMILARITY) + bonus
             confidence = min(confidence, 1.0)
             return (confidence,
                     {
