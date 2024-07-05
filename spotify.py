@@ -1,15 +1,19 @@
 import re
+import os
 import time
 
 import requests
 import spotipy
-from ovos_utils.log import LOG
-from ovos_workshop.backwards_compat import PlaybackType, MediaType
-from ovos_utils.parse import match_one, fuzzy_match
+from ovos_backend_client.api import OAuthApi
+from ovos_backend_client.database import OAuthTokenDatabase, OAuthApplicationDatabase
 from requests.exceptions import HTTPError
+from spotipy import SpotifyOAuth
 from spotipy.oauth2 import SpotifyAuthBase
 
-from ovos_backend_client.api import OAuthApi
+from ovos_utils.log import LOG
+from ovos_utils.parse import match_one, fuzzy_match
+from ovos_utils.xdg_utils import xdg_config_home
+from ovos_workshop.backwards_compat import PlaybackType, MediaType
 
 
 class SpotifyPlaybackError(Exception):
@@ -38,10 +42,41 @@ class OVOSSpotifyCredentials(SpotifyAuthBase):
         super().__init__(requests.Session())
 
     @staticmethod
+    def is_token_expired(token_info: dict):
+        return time.time() >= token_info["expires_at"]
+
+    @staticmethod
     def get_access_token():
         t = OAuthApi().get_oauth_token(OAUTH_TOKEN_ID,
                                        auto_refresh=True)
+        # TODO auto_refresh flag not working
+        if OVOSSpotifyCredentials.is_token_expired(t):
+            LOG.warning("SPOTIFY TOKEN EXPIRED")
+            t = OVOSSpotifyCredentials.refresh_oauth()
         return t["access_token"]
+
+    @staticmethod
+    def refresh_oauth():
+        AUTH_DIR = os.environ.get('SPOTIFY_SKILL_CREDS_DIR', f"{xdg_config_home()}/spotipy")
+        SCOPE = 'user-library-read streaming playlist-read-private user-top-read user-read-playback-state'
+        TOKEN_ID = "ocp_spotify"
+
+        with OAuthApplicationDatabase() as db:
+            app = db.get_application(TOKEN_ID)
+
+        am = SpotifyOAuth(scope=SCOPE,
+                          client_id=app["client_id"],
+                          client_secret=app["client_secret"],
+                          redirect_uri='https://localhost:8888',
+                          cache_path=f"{AUTH_DIR}/token",
+                          open_browser=False)
+
+        with OAuthTokenDatabase() as db:
+            token_info = db.get_token(TOKEN_ID)
+            token_info = am.refresh_access_token(token_info["refresh_token"])
+            db.add_token(TOKEN_ID, token_info)
+            LOG.info(f"{TOKEN_ID} oauth token  refreshed")
+        return token_info
 
 
 class SpotifyClient:
