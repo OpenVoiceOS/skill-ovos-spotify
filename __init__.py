@@ -25,7 +25,7 @@ class SpotifySkill(OVOSCommonPlaybackSkill):
     def has_configured_players(self) -> bool:
         backends = self.config_core.get("Audio", {}).get("backends", {})
         configured_devices = [d["identifier"] for d in backends.values()
-                              if "spotify" in d["type"] and d.get('active', True)]
+                              if "spotify" in d.get("type", "other") and d.get('active', True)]
         if not configured_devices:
             LOG.warning("no spotify devices configured in mycroft.conf")
             return False
