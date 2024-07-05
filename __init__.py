@@ -145,10 +145,13 @@ class SpotifySkill(OVOSCommonPlaybackSkill):
         if media_type == MediaType.MUSIC:
             base_score += 15
         phrase = self.remove_voc(phrase, "spotify")
-        for res in self.search_albums(phrase):
-            res.match_confidence += base_score
-            res.match_confidence = min(100, res.match_confidence)
-            yield res
+        try:
+            for res in self.search_albums(phrase):
+                res.match_confidence += base_score
+                res.match_confidence = min(100, res.match_confidence)
+                yield res
+        except Exception as e:
+            LOG.warning(f"Spotify Error: {e}")
 
     @ocp_search()
     def search_spotify_tracks(self, phrase, media_type=MediaType.GENERIC):
@@ -158,10 +161,13 @@ class SpotifySkill(OVOSCommonPlaybackSkill):
         if media_type == MediaType.MUSIC:
             base_score += 15
         phrase = self.remove_voc(phrase, "spotify")
-        for res in self.search_tracks(phrase):
-            res.match_confidence += base_score
-            res.match_confidence = min(100, res.match_confidence)
-            yield res
+        try:
+            for res in self.search_tracks(phrase):
+                res.match_confidence += base_score
+                res.match_confidence = min(100, res.match_confidence)
+                yield res
+        except Exception as e:
+            LOG.warning(f"Spotify Error: {e}")
 
     @ocp_search()
     def search_spotify_playlists(self, phrase, media_type=MediaType.GENERIC):
@@ -171,10 +177,13 @@ class SpotifySkill(OVOSCommonPlaybackSkill):
         if media_type == MediaType.MUSIC:
             base_score += 15
         phrase = self.remove_voc(phrase, "spotify")
-        for res in self.search_playlists(phrase):
-            res.match_confidence += base_score
-            res.match_confidence = min(100, res.match_confidence)
-            yield res
+        try:
+            for res in self.search_playlists(phrase):
+                res.match_confidence += base_score
+                res.match_confidence = min(100, res.match_confidence)
+                yield res
+        except Exception as e:
+            LOG.warning(f"Spotify Error: {e}")
 
 
 if __name__ == "__main__":
