@@ -38,6 +38,8 @@ class SpotifySkill(OVOSCommonPlaybackSkill):
 
     def search_artists(self, query) -> Iterable[Playlist]:
         score, data = self.spotify.query_artist(query)
+        if not data:
+            return
 
         for artist in data["data"]["artists"]["items"]:
             uri = artist["uri"]
@@ -67,6 +69,8 @@ class SpotifySkill(OVOSCommonPlaybackSkill):
 
     def search_albums(self, query) -> Iterable[Playlist]:
         score, data = self.spotify.query_album(query)
+        if not data:
+            return
 
         for album in data["data"]["albums"]["items"]:
             uri = album["uri"]
@@ -97,6 +101,8 @@ class SpotifySkill(OVOSCommonPlaybackSkill):
 
     def search_tracks(self, query) -> Iterable[MediaEntry]:
         score, data = self.spotify.query_song(query)
+        if not data:
+            return
 
         for track in data["data"]["tracks"]["items"]:
             album = track["album"]
@@ -113,6 +119,8 @@ class SpotifySkill(OVOSCommonPlaybackSkill):
 
     def search_playlists(self, query) -> Iterable[Playlist]:
         data, score = self.spotify.get_best_user_playlist(query)
+        if not data:
+            return
         uri = data["uri"]
         playlist = Playlist(
                 title=data["name"],
@@ -172,7 +180,7 @@ class SpotifySkill(OVOSCommonPlaybackSkill):
                 res.match_confidence = min(100, res.match_confidence)
                 yield res
         except Exception as e:
-            LOG.warning(f"Spotify Error: {e}")
+            LOG.exception(f"Spotify Error: {e}")
 
     @ocp_search()
     def search_spotify_tracks(self, phrase, media_type=MediaType.GENERIC):
@@ -190,7 +198,7 @@ class SpotifySkill(OVOSCommonPlaybackSkill):
                 res.match_confidence = min(100, res.match_confidence)
                 yield res
         except Exception as e:
-            LOG.warning(f"Spotify Error: {e}")
+            LOG.exception(f"Spotify Error: {e}")
 
     @ocp_search()
     def search_spotify_playlists(self, phrase, media_type=MediaType.GENERIC):
@@ -208,7 +216,7 @@ class SpotifySkill(OVOSCommonPlaybackSkill):
                 res.match_confidence = min(100, res.match_confidence)
                 yield res
         except Exception as e:
-            LOG.warning(f"Spotify Error: {e}")
+            LOG.exception(f"Spotify Error: {e}")
 
 
 if __name__ == "__main__":

@@ -243,10 +243,12 @@ class SpotifyClient:
             tracks = [t for t in tracks if t[0] > tracks[0][0] - 0.1]
             # Sort remaining tracks by popularity
             tracks.sort(key=lambda x: x[1]['popularity'])
-            LOG.debug([(t[0], t[1]['name'], t[1]['artists'][0]['name'])
+            bonus += fuzzy_match(song_search, tracks[-1]['artists'][0]['name'],
+                                 strategy=MatchStrategy.DAMERAU_LEVENSHTEIN_SIMILARITY)
+            LOG.debug([(t[0] + bonus, t[1]['name'], t[1]['artists'][0]['name'])
                        for t in tracks])
             data['tracks']['items'] = [tracks[-1][1]]
-            return (tracks[-1][0] + bonus,
+            return (min(1.0, tracks[-1][0] + bonus),
                     {'data': data, 'name': None, 'type': 'track'})
         else:
             return SpotifyClient.NOTHING_FOUND
