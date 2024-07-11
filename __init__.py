@@ -12,8 +12,10 @@ from ovos_skill_spotify.spotify import SpotifyClient
 class SpotifySkill(OVOSCommonPlaybackSkill):
     def __init__(self, *args, **kwargs):
         self.spotify = SpotifyClient()
-        super().__init__(*args, **kwargs, supported_media=[MediaType.MUSIC],
-                         skill_icon=join(dirname(__file__), "spotify.png"))
+        super().__init__(supported_media=[MediaType.MUSIC],
+                         skill_icon=join(dirname(__file__), "spotify.png"),
+                         skill_voc_filename="spotify_skill",
+                         *args, **kwargs, )
         if not self.has_configured_players():
             LOG.warning("SPOTIFY NOT YET CONFIGURED!")
 
