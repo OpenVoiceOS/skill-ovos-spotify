@@ -12,7 +12,7 @@ from ovos_skill_spotify.spotify import SpotifyClient
 class SpotifySkill(OVOSCommonPlaybackSkill):
     def __init__(self, *args, **kwargs):
         self.spotify = SpotifyClient()
-        super().__init__(supported_media=[MediaType.MUSIC],
+        super().__init__(supported_media=[MediaType.GENERIC, MediaType.MUSIC],
                          skill_icon=join(dirname(__file__), "spotify.png"),
                          skill_voc_filename="spotify_skill",
                          *args, **kwargs, )
