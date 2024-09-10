@@ -251,7 +251,7 @@ class SpotifyClient:
         else:
             return SpotifyClient.NOTHING_FOUND
 
-    def get_best_user_playlist(self, playlist) -> Tuple[str. int]:
+    def get_best_user_playlist(self, playlist) -> Tuple[str, int]:
         """ Get best playlist matching the provided name
         Arguments:
             playlist (str): Playlist name
