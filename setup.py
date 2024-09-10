@@ -68,6 +68,9 @@ def get_version():
     return version
 
 
+with open(path.join(path.abspath(path.dirname(__file__)), "README.md"), "r") as f:
+    long_description = f.read()
+
 setup(
     # this is the package name that goes on pip
     name=PYPI_NAME,
@@ -80,5 +83,7 @@ setup(
     include_package_data=True,
     install_requires=get_requirements("requirements.txt"),
     keywords='ovos skill plugin',
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     entry_points={'ovos.plugin.skill': PLUGIN_ENTRY_POINT}
 )
