@@ -1,12 +1,13 @@
 from os.path import join, dirname
-from typing import Iterable, Union
+from typing import Iterable
+
+from ovos_skill_spotify.spotify import SpotifyClient
 from ovos_utils import classproperty
 from ovos_utils.log import LOG
-from ovos_workshop.backwards_compat import MediaType, PlaybackType, MediaEntry, Playlist
 from ovos_utils.process_utils import RuntimeRequirements
+from ovos_workshop.backwards_compat import MediaType, PlaybackType, MediaEntry, Playlist
 from ovos_workshop.decorators.ocp import ocp_search
 from ovos_workshop.skills.common_play import OVOSCommonPlaybackSkill
-from ovos_skill_spotify.spotify import SpotifyClient
 
 
 class SpotifySkill(OVOSCommonPlaybackSkill):
@@ -125,14 +126,14 @@ class SpotifySkill(OVOSCommonPlaybackSkill):
             return
         uri = data["uri"]
         playlist = Playlist(
-                title=data["name"],
-                image=data["images"][-1]["url"] if data["images"] else "",
-                match_confidence=score,
-                media_type=MediaType.MUSIC,
-                playback=PlaybackType.AUDIO_SERVICE,
-                skill_id=self.skill_id,
-                skill_icon=self.skill_icon
-            )
+            title=data["name"],
+            image=data["images"][-1]["url"] if data["images"] else "",
+            match_confidence=score,
+            media_type=MediaType.MUSIC,
+            playback=PlaybackType.AUDIO_SERVICE,
+            skill_id=self.skill_id,
+            skill_icon=self.skill_icon
+        )
         for t in self.spotify.tracks_from_playlist(uri)["items"]:
             t = t["track"]
             artist = t["artists"][0]

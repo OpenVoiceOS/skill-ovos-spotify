@@ -1,19 +1,19 @@
-import re
 import os
+import re
 import time
+from typing import Tuple, Dict
 
 import requests
 import spotipy
 from ovos_backend_client.api import OAuthApi
 from ovos_backend_client.database import OAuthTokenDatabase, OAuthApplicationDatabase
-from requests.exceptions import HTTPError
-from spotipy import SpotifyOAuth
-from spotipy.oauth2 import SpotifyAuthBase
-
 from ovos_utils.log import LOG
 from ovos_utils.parse import match_one, fuzzy_match, MatchStrategy
 from ovos_utils.xdg_utils import xdg_config_home
 from ovos_workshop.backwards_compat import PlaybackType, MediaType
+from requests.exceptions import HTTPError
+from spotipy import SpotifyOAuth
+from spotipy.oauth2 import SpotifyAuthBase
 
 
 class SpotifyPlaybackError(Exception):
@@ -115,7 +115,7 @@ class SpotifyClient:
             return sorted(results, key=lambda x: x[0])[-1]
 
     @staticmethod
-    def best_confidence(title, query):
+    def best_confidence(title, query) -> int:
         """Find best match for a title against a query.
         Some titles include ( Remastered 2016 ) and similar info. This method
         will test the raw title and a version that has been parsed to remove
@@ -124,12 +124,12 @@ class SpotifyClient:
             title: title name from spotify search
             query: query from user
         Returns:
-            (float) best condidence
+            (int) best confidence (0-100)
         """
         best = title.lower()
         best_stripped = re.sub(r'(\(.+\)|-.+)$', '', best).strip()
-        return max(fuzzy_match(best, query, strategy=MatchStrategy.DAMERAU_LEVENSHTEIN_SIMILARITY),
-                   fuzzy_match(best_stripped, query, strategy=MatchStrategy.DAMERAU_LEVENSHTEIN_SIMILARITY))
+        return int(max(fuzzy_match(best, query, strategy=MatchStrategy.DAMERAU_LEVENSHTEIN_SIMILARITY),
+                   fuzzy_match(best_stripped, query, strategy=MatchStrategy.DAMERAU_LEVENSHTEIN_SIMILARITY)) * 100)
 
     def load_credentials(self):
         """ Retrieve credentials from the backend and connect to Spotify """
@@ -164,19 +164,18 @@ class SpotifyClient:
             self.__playlists_fetched = now
         return self._playlists
 
-    def query_artist(self, artist, bonus=0.0):
+    def query_artist(self, artist) -> Tuple[int, Dict]:
         """Try to find an artist.
             Arguments:
                 artist (str): Artist to search for
-                bonus (float): Any bonus to apply to the confidence
-            Returns: Tuple with confidence and data or NOTHING_FOUND
+            Returns: Tuple with confidence (0-100) and data or NOTHING_FOUND
         """
-        bonus += 0.1
         data = self.spotify.search(artist, type='artist')
         if data and data['artists']['items']:
             best = data['artists']['items'][0]['name']
-            confidence = fuzzy_match(best, artist.lower(), strategy=MatchStrategy.DAMERAU_LEVENSHTEIN_SIMILARITY) + bonus
-            confidence = min(confidence, 1.0)
+            confidence = fuzzy_match(best, artist.lower(),
+                                     strategy=MatchStrategy.DAMERAU_LEVENSHTEIN_SIMILARITY) * 100
+            confidence = min(confidence, 100)
             return (confidence,
                     {
                         'data': data,
@@ -186,20 +185,20 @@ class SpotifyClient:
         else:
             return SpotifyClient.NOTHING_FOUND
 
-    def query_album(self, album, bonus=0):
+    def query_album(self, album) -> Tuple[int, Dict]:
         """ Try to find an album.
             Searches Spotify by album and artist if available.
             Arguments:
                 album (str): Album to search for
-                bonus (float): Any bonus to apply to the confidence
-            Returns: Tuple with confidence and data or NOTHING_FOUND
+            Returns: Tuple with confidence (0-100) and data or NOTHING_FOUND
         """
         # TODO localize
         by_word = ' by '
+        bonus = 0
         if len(album.split(by_word)) > 1:
             album, artist = album.split(by_word)
             album_search = '*{}* artist:{}'.format(album, artist)
-            bonus += 0.1
+            bonus = 10
         else:
             album_search = album
         data = self.spotify.search(album_search, type='album')
@@ -208,7 +207,7 @@ class SpotifyClient:
             confidence = self.best_confidence(best, album)
             # Also check with parentheses removed for example
             # "'Hello Nasty ( Deluxe Version/Remastered 2009" as "Hello Nasty")
-            confidence = min(confidence + bonus, 1.0)
+            confidence = min(confidence + bonus, 100)
             LOG.info((album, best, confidence))
             return (confidence,
                     {
@@ -218,13 +217,12 @@ class SpotifyClient:
                     })
         return SpotifyClient.NOTHING_FOUND
 
-    def query_song(self, song, bonus=0):
+    def query_song(self, song) -> Tuple[int, Dict]:
         """ Try to find a song.
             Searches Spotify for song and artist if provided.
             Arguments:
                 song (str): Song to search for
-                bonus (float): Any bonus to apply to the confidence
-            Returns: Tuple with confidence and data or NOTHING_FOUND
+            Returns: Tuple with confidence (0-100) and data or NOTHING_FOUND
         """
         by_word = ' by '  # TODO lang support
         if len(song.split(by_word)) > 1:
@@ -243,17 +241,17 @@ class SpotifyClient:
             tracks = [t for t in tracks if t[0] > tracks[0][0] - 0.1]
             # Sort remaining tracks by popularity
             tracks.sort(key=lambda x: x[1]['popularity'])
-            bonus += fuzzy_match(song_search, tracks[-1][1]['artists'][0]['name'],
-                                 strategy=MatchStrategy.DAMERAU_LEVENSHTEIN_SIMILARITY)
+            bonus = int(fuzzy_match(song_search, tracks[-1][1]['artists'][0]['name'],
+                                    strategy=MatchStrategy.TOKEN_SET_RATIO) * 100)
             LOG.debug([(t[0] + bonus, t[1]['name'], t[1]['artists'][0]['name'])
                        for t in tracks])
             data['tracks']['items'] = [tracks[-1][1]]
-            return (min(1.0, tracks[-1][0] + bonus),
+            return (min(100, tracks[-1][0] + bonus) ,
                     {'data': data, 'name': None, 'type': 'track'})
         else:
             return SpotifyClient.NOTHING_FOUND
 
-    def get_best_user_playlist(self, playlist):
+    def get_best_user_playlist(self, playlist) -> Tuple[str. int]:
         """ Get best playlist matching the provided name
         Arguments:
             playlist (str): Playlist name
@@ -262,9 +260,10 @@ class SpotifyClient:
         playlists = self.playlists
         if len(playlists) > 0:
             # Only check if the user has playlists
-            key, confidence = match_one(playlist.lower(), playlists)
+            key, confidence = match_one(playlist.lower(), playlists,
+                                        strategy=MatchStrategy.TOKEN_SET_RATIO)
             if confidence > 0.7:
-                return key, confidence
+                return key, int(confidence * 100)
         return SpotifyClient.NOTHING_FOUND
 
     def tracks_from_playlist(self, playlist_id):
