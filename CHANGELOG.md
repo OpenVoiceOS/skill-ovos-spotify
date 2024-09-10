@@ -1,29 +1,12 @@
 # Changelog
 
-## [Unreleased](https://github.com/OpenVoiceOS/skill-ovos-spotify/tree/HEAD)
+## [0.1.3a1](https://github.com/OpenVoiceOS/skill-ovos-spotify/tree/0.1.3a1) (2024-09-10)
 
-[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-spotify/compare/62ed299fb9b63ae680bc902a76bf4a2c2adab3ee...HEAD)
-
-**Implemented enhancements:**
-
-- modernize [\#4](https://github.com/OpenVoiceOS/skill-ovos-spotify/pull/4) ([NeonJarbas](https://github.com/NeonJarbas))
-
-**Fixed bugs:**
-
-- fix/oauth refresh token [\#5](https://github.com/OpenVoiceOS/skill-ovos-spotify/pull/5) ([NeonJarbas](https://github.com/NeonJarbas))
-
-**Closed issues:**
-
-- TypeError: tuple indices must be integers or slices, not str [\#8](https://github.com/OpenVoiceOS/skill-ovos-spotify/issues/8)
-- Not on PyPi [\#6](https://github.com/OpenVoiceOS/skill-ovos-spotify/issues/6)
-- TypeError: extractOne\(\) takes exactly 2 positional arguments \(3 given\) [\#3](https://github.com/OpenVoiceOS/skill-ovos-spotify/issues/3)
-- NameError: name 'process' is not defined [\#2](https://github.com/OpenVoiceOS/skill-ovos-spotify/issues/2)
-- HOW TO AUTHENTICATE [\#1](https://github.com/OpenVoiceOS/skill-ovos-spotify/issues/1)
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-spotify/compare/0.1.2...0.1.3a1)
 
 **Merged pull requests:**
 
-- Fix and close issue \#8 [\#9](https://github.com/OpenVoiceOS/skill-ovos-spotify/pull/9) ([goldyfruit](https://github.com/goldyfruit))
-- refactor/ocp\_modernize [\#7](https://github.com/OpenVoiceOS/skill-ovos-spotify/pull/7) ([JarbasAl](https://github.com/JarbasAl))
+- chore:add\_description [\#11](https://github.com/OpenVoiceOS/skill-ovos-spotify/pull/11) ([JarbasAl](https://github.com/JarbasAl))
 
 
 
