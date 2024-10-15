@@ -5,7 +5,7 @@ from ovos_skill_spotify.spotify import SpotifyClient
 from ovos_utils import classproperty
 from ovos_utils.log import LOG
 from ovos_utils.process_utils import RuntimeRequirements
-from ovos_workshop.backwards_compat import MediaType, PlaybackType, MediaEntry, Playlist
+from ovos_utils.ocp import MediaType, PlaybackType, MediaEntry, Playlist
 from ovos_workshop.decorators.ocp import ocp_search
 from ovos_workshop.skills.common_play import OVOSCommonPlaybackSkill
 

@@ -10,7 +10,7 @@ from ovos_backend_client.database import OAuthTokenDatabase, OAuthApplicationDat
 from ovos_utils.log import LOG
 from ovos_utils.parse import match_one, fuzzy_match, MatchStrategy
 from ovos_utils.xdg_utils import xdg_config_home
-from ovos_workshop.backwards_compat import PlaybackType, MediaType
+from ovos_utils.ocp import PlaybackType, MediaType
 from requests.exceptions import HTTPError
 from spotipy import SpotifyOAuth
 from spotipy.oauth2 import SpotifyAuthBase
