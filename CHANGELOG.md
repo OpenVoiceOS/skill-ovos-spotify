@@ -1,17 +1,28 @@
 # Changelog
 
-## [0.1.4a1](https://github.com/OpenVoiceOS/skill-ovos-spotify/tree/0.1.4a1) (2024-09-11)
+## [0.1.7a1](https://github.com/OpenVoiceOS/skill-ovos-spotify/tree/0.1.7a1) (2024-11-05)
 
-[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-spotify/compare/0.1.3...0.1.4a1)
-
-**Closed issues:**
-
-- Can't stop playing  [\#13](https://github.com/OpenVoiceOS/skill-ovos-spotify/issues/13)
-- invalid redirect URI [\#12](https://github.com/OpenVoiceOS/skill-ovos-spotify/issues/12)
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-spotify/compare/0.1.6a1...0.1.7a1)
 
 **Merged pull requests:**
 
-- fix:allow\_latest\_backend\_client\_without\_refresh\_endpoint [\#14](https://github.com/OpenVoiceOS/skill-ovos-spotify/pull/14) ([JarbasAl](https://github.com/JarbasAl))
+- fix:allow workshop 3.0.0 [\#20](https://github.com/OpenVoiceOS/skill-ovos-spotify/pull/20) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.1.6a1](https://github.com/OpenVoiceOS/skill-ovos-spotify/tree/0.1.6a1) (2024-10-31)
+
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-spotify/compare/0.1.5a1...0.1.6a1)
+
+**Merged pull requests:**
+
+- fix:allow workshop 3.0.0 [\#18](https://github.com/OpenVoiceOS/skill-ovos-spotify/pull/18) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.1.5a1](https://github.com/OpenVoiceOS/skill-ovos-spotify/tree/0.1.5a1) (2024-10-15)
+
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-spotify/compare/0.1.4...0.1.5a1)
+
+**Merged pull requests:**
+
+- fix:update\_requirements [\#16](https://github.com/OpenVoiceOS/skill-ovos-spotify/pull/16) ([JarbasAl](https://github.com/JarbasAl))
 
 
 
